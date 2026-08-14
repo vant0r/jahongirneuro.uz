@@ -1,0 +1,4 @@
+{
+  "intro":"Asosiy klinik yo‘nalishlar va professional faoliyat.",
+  "items":[{"category":"KONSULTATSIYA","title":"Nevrologik konsultatsiya","description":"Anamnez, klinik tekshiruv va individual tibbiy yondashuv."},{"category":"DIAGNOSTIKA","title":"Nevrologik diagnostika","description":"Tekshiruv natijalarini klinik holat bilan birgalikda tahlil qilish."},{"category":"DAVOLASH","title":"Individual davolash strategiyasi","description":"Bemor holatiga mos, tushunarli va bosqichma-bosqich yondashuv."},{"category":"PREVENTION","title":"Profilaktika","description":"Nevrologik salomatlikni saqlash va xavf omillarini boshqarish."}]
+}
