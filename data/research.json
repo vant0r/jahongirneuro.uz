@@ -1,0 +1,6 @@
+{
+  "intro":"Tasdiqlangan ilmiy ishlar, konferensiyalar va professional yutuqlar.",
+  "publications":[{"year":"2025","title":"Ilmiy maqola nomi","source":"Jurnal nomi","url":""},{"year":"2024","title":"Tadqiqot nomi","source":"Ilmiy nashr","url":""}],
+  "conferences":[{"year":"2025","title":"Konferensiya nomi","role":"Spiker / ishtirokchi"}],
+  "awards":[{"year":"2024","title":"Professional mukofot","issuer":"Tashkilot nomi"}]
+}
