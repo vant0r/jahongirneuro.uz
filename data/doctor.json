@@ -1,35 +1,7 @@
 {
-  "name": "Dr. Jahongir",
-  "title": "Nevrolog",
-  "bio": "Zamonaviy diagnostika va individual yondashuv asosida nevrologik salomatlikni yaxshilashga yo‘naltirilgan professional tibbiy faoliyat.",
-  "profile": "Bu yerga doktorning 5–8 jumladan iborat professional biografiyasi, asosiy tajribasi va bemorlarga yondashuvi yoziladi.",
-  "focus": "Nevrologiya, diagnostika, konsultatsiya va individual davolash strategiyalari.",
-  "stats": [
-    { "value": "10+", "label": "yillik tajriba" },
-    { "value": "15K+", "label": "bemor" },
-    { "value": "20+", "label": "sertifikat" }
-  ],
-  "expertise": [
-    { "title": "Nevrologik konsultatsiya", "description": "Nevrologik shikoyatlarni baholash, anamnez va klinik tekshiruv asosida individual yondashuv." },
-    { "title": "Diagnostika", "description": "Zamonaviy tekshiruv natijalarini klinik holat bilan birgalikda tahlil qilish." },
-    { "title": "Davolash strategiyasi", "description": "Bemorning holati va ehtiyojiga mos, tushunarli va bosqichma-bosqich davolash rejasi." }
-  ],
-  "experience": [
-    { "period": "2020 — hozir", "position": "Yetakchi mutaxassis", "place": "Klinika nomi", "description": "Bu yerga lavozim va asosiy professional faoliyat tavsifi kiritiladi." },
-    { "period": "2016 — 2020", "position": "Nevrolog", "place": "Tashkilot nomi", "description": "Bu yerga oldingi ish tajribasi va mas'uliyatlar kiritiladi." }
-  ],
-  "education": [
-    { "year": "2010 — 2016", "title": "Tibbiyot oliy ma’lumoti", "institution": "Universitet nomi" },
-    { "year": "2016 — 2018", "title": "Klinik ordinatura", "institution": "Muassasa nomi" }
-  ],
-  "certificates": [
-    { "year": "2025", "title": "Malaka oshirish sertifikati", "issuer": "Tashkilot nomi" },
-    { "year": "2024", "title": "Professional konferensiya", "issuer": "Tashkilot nomi" },
-    { "year": "2023", "title": "Maxsus kurs", "issuer": "Tashkilot nomi" }
-  ],
-  "contact": {
-    "phone": "+998 90 000 00 00",
-    "telegram": "https://t.me/username",
-    "address": "Klinika manzili, Toshkent, O‘zbekiston"
-  }
+  "name":"Dr. Jahongir",
+  "short_name":"Jahongir",
+  "title":"Nevrolog",
+  "bio":"Zamonaviy diagnostika, klinik tajriba va individual yondashuv asosida nevrologik salomatlikka xizmat qiluvchi shifokor.",
+  "stats":[{"value":"10+","label":"yillik tajriba"},{"value":"15K+","label":"bemor"},{"value":"20+","label":"sertifikat"},{"value":"30+","label":"ilmiy ish"}]
 }
