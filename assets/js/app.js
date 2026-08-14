@@ -1,0 +1,1 @@
+document.addEventListener('DOMContentLoaded',()=>{const header=document.querySelector('.site-header');let lastY=window.scrollY;window.addEventListener('scroll',()=>{const y=window.scrollY;if(header){header.style.transform=y>lastY&&y>120?'translateY(-8px)':'translateY(0)';header.style.transition='transform .25s ease'}lastY=y},{passive:true})});
