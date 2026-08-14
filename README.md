@@ -6,39 +6,41 @@ Doctor personal professional portfolio.
 - PHP 8.x
 - HTML5
 - CSS3
-- Vanilla JavaScript
+- Vanilla JavaScript where needed
 - JSON
 - Apache
 
-## Structure
+## Final structure
 ```text
 /
 ├── index.php
-├── README.md
+├── about/index.php
+├── expertise/index.php
+├── research/index.php
+├── contact/index.php
+├── admin/index.php
+├── admin/about/index.php
+├── admin/expertise/index.php
+├── admin/research/index.php
+├── admin/contact/index.php
 ├── data/
-│   └── doctor.json
-└── assets/
-    ├── css/
-    │   └── style.css
-    ├── js/
-    │   └── app.js
-    └── images/
-        └── doctor.jpg   # upload real portrait
+│   ├── doctor.json
+│   ├── about.json
+│   ├── expertise.json
+│   ├── research.json
+│   └── contact.json
+└── uploads/
+    └── profile/
 ```
 
+## Architecture
+5 public pages + 5 admin pages. All editable content is stored in JSON. No database, framework, Node.js, React, Tailwind or Bootstrap.
+
+## Admin
+`/admin/` uses PHP sessions. Set the server environment variable `ADMIN_PASSWORD` to a strong password. If it is not set, the development fallback is `CHANGE-ME-NOW` and must be changed before production.
+
 ## Content
-All editable doctor information is stored in `data/doctor.json` so the presentation layer does not need to be rewritten when the doctor's biography, education, experience, certificates, statistics or contacts change.
-
-## Next execution order
-1. Replace placeholder doctor data in `data/doctor.json` with verified information.
-2. Upload the doctor's professional portrait to `assets/images/doctor.jpg`.
-3. Add real certificate/case images when the content is available.
-4. Add SEO/Open Graph metadata and favicon.
-5. Add a dedicated case-studies section with patient consent where required.
-6. Add a real appointment/contact workflow only after the phone, Telegram and clinic details are confirmed.
-
-## Design direction
-Bright premium medical identity, restrained glass surfaces, strong typography, generous whitespace, subtle motion and mobile-first responsive behavior. Avoid template-like medical UI.
+Replace all placeholder values with verified doctor information. Upload the professional portrait to `uploads/profile/doctor.jpg` and add certificates/publications only when the real material is available.
 
 ## Current status
-**Foundation created — content collection and visual refinement are next.**
+**Core 10-page architecture created. Content population, real assets, SEO metadata and final visual refinement remain.**
