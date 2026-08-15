@@ -1,742 +1,487 @@
-# jahongirneuro.uz
+# JAHONGIRNEURO.UZ — MASTER AI AGENT INSTRUCTION
 
-> **Personal professional portfolio website for a doctor.**
+> READ THIS README COMPLETELY BEFORE CODING. This file is the project's single source of truth, development memory and execution contract.
 
-A lightweight, premium, bright medical portfolio focused on **professional identity, expertise, academic credibility, verified achievements and appointment/contact conversion**.
+## 1. PROJECT PURPOSE
 
-The project is intentionally small: **5 public pages + 5 admin pages**, JSON-driven content, PHP 8.x and no framework overhead.
+`jahongirneuro.uz` is a **personal professional portfolio website for a doctor**, not a generic clinic or hospital portal.
 
----
+Visitor journey:
 
-## 1. PROJECT GOAL
+**Who is the doctor? → What is the expertise? → What proves the expertise? → How can I contact/request an appointment?**
 
-The website is a **doctor's personal professional identity**, not a generic clinic template.
+The site must communicate professional identity, medical expertise, education, experience, research, publications, certificates, achievements, trust and a clear contact action.
 
-The visitor journey must be:
+Never invent medical credentials, publications, awards, patient numbers, outcomes or other professional claims.
 
-**Who is the doctor? → What does the doctor specialize in? → What proves the expertise? → How can I contact/book?**
-
-The site must communicate:
-
-- professional authority
-- medical expertise
-- education and experience
-- research and publications
-- certificates and achievements
-- trust
-- clear appointment/contact action
-
-Do not turn the project into a large hospital/clinic portal.
-
----
-
-## 2. NON-NEGOTIABLE TECH STACK
+## 2. TECHNOLOGY — NON-NEGOTIABLE
 
 Use only:
+- PHP 8.x
+- HTML5
+- CSS3
+- Vanilla JavaScript
+- JSON
+- Apache
 
-- **PHP 8.x**
-- **HTML5**
-- **CSS3**
-- **Vanilla JavaScript** only when needed
-- **JSON** for editable content
-- **Apache**
-
-### Explicitly prohibited
-
-- React
-- Next.js
-- Vue
-- Angular
+Prohibited:
+- React / Next.js / Vue / Angular
 - Node.js / npm build systems
-- Tailwind CSS
-- Bootstrap
-- Laravel
-- WordPress
-- PHP frameworks
-- MySQL/database for the portfolio content
+- Tailwind / Bootstrap
+- Laravel / WordPress / PHP frameworks
+- MySQL/database for content
 - unnecessary third-party UI libraries
 
-The website must remain deployable on ordinary PHP + Apache hosting.
+Keep the project deployable on ordinary PHP + Apache hosting.
 
----
-
-## 3. DESIGN DIRECTION
-
-### Visual language
-
-**Apple-inspired premium minimalism + modern medical professionalism.**
-
-Required characteristics:
-
-- bright/light interface
-- white and very light neutral surfaces
-- premium medical accent color
-- strong typography
-- generous whitespace
-- precise grid and alignment
-- subtle glass effects where useful
-- layered depth without visual noise
-- refined borders and soft shadows
-- restrained micro-interactions
-- smooth but lightweight motion
-- excellent mobile presentation
-
-### Avoid completely
-
-- dark-first design
-- black cyberpunk aesthetic
-- neon overload
-- excessive gradients
-- generic Bootstrap-like cards
-- template-looking layouts
-- excessive animation
-- unnecessary decorative elements
-- visual clutter
-
-The design should feel **expensive, calm, precise and trustworthy**.
-
----
-
-## 4. LANGUAGE & CONTENT
-
-Primary UI/content language:
-
-**Uzbek — Latin alphabet.**
-
-Tone:
-
-- professional
-- concise
-- medically credible
-- respectful
-- understandable to patients
-
-Do not invent medical credentials, publications, patient numbers, awards, certificates or clinical outcomes.
-
-Until real information is supplied, use clearly identifiable placeholders rather than fake claims.
-
-All professional claims must be based on verified information supplied by the doctor.
-
----
-
-## 5. FINAL SITE MAP
+## 3. FINAL STRUCTURE
 
 ```text
-/
-├── index.php                         # Public: Home
+jahongirneuro.uz/
 │
-├── about/
-│   └── index.php                     # Public: About doctor
-│
-├── expertise/
-│   └── index.php                     # Public: Expertise & activity
-│
-├── research/
-│   └── index.php                     # Public: Research & achievements
-│
-├── contact/
-│   └── index.php                     # Public: Contact & appointment
+├── index.php
+├── about.php
+├── services.php
+├── portfolio.php
+├── contact.php
 │
 ├── admin/
-│   ├── index.php                     # Admin dashboard
-│   ├── about/
-│   │   └── index.php                 # Admin: About
-│   ├── expertise/
-│   │   └── index.php                 # Admin: Expertise
-│   ├── research/
-│   │   └── index.php                 # Admin: Research
-│   └── contact/
-│       └── index.php                  # Admin: Contact
+│   └── index.php                 # SINGLE ADMIN PANEL
 │
 ├── data/
-│   ├── doctor.json
+│   ├── site.json
 │   ├── about.json
-│   ├── expertise.json
-│   ├── research.json
-│   └── contact.json
+│   ├── services.json
+│   ├── portfolio.json
+│   └── requests.json
 │
-└── uploads/
-    └── profile/
+├── media/
+│   ├── images/
+│   └── videos/
+│
+└── README.md
 ```
 
-### Page count
+### CRITICAL ARCHITECTURE RULE
 
-- **5 public pages**
-- **5 admin pages**
-- **5 JSON content files**
-- **1 upload area**
-- **No database**
+There is **ONE and ONLY ONE admin panel**: `/admin/index.php`.
 
-Do not add new public pages unless the project specification is deliberately changed.
+Do NOT create `admin/about.php`, `admin/media.php`, `admin/requests.php` or separate admin directories. All management functions are internal sections/tabs/views of the single admin page.
 
----
+Do not introduce new public pages unless this README is deliberately changed.
 
-## 6. PUBLIC PAGES
+## 4. PUBLIC PAGES
 
-### `/` — Home
+### `/index.php` — HOME
+First impression, identity, trust and conversion.
 
-Purpose: first impression, identity, trust and conversion.
+Recommended flow:
+1. minimal navigation
+2. doctor hero/identity
+3. positioning statement
+4. verified statistics
+5. expertise preview
+6. biography preview
+7. selected research/achievements/media
+8. credibility/trust
+9. appointment CTA
+10. footer
 
-Content:
+The doctor's portrait is a major visual element. Never put important text over the doctor's face.
 
+### `/about.php` — ABOUT
+Biography, education, career timeline, current/previous positions, professional philosophy, languages, memberships and verified achievements.
+
+### `/services.php` — EXPERTISE / SERVICES
+Specialties, areas of expertise, professional activities, verified procedures/services, relevant certifications and concise explanations. Never invent services.
+
+### `/portfolio.php` — PORTFOLIO / RESEARCH / ACHIEVEMENTS
+Research, publications, scientific projects, conferences, presentations, certificates, awards, achievements and verified professional media. Preserve real publication title, authors, source, year and identifiers/links when available.
+
+### `/contact.php` — CONTACT / APPOINTMENT
+Phone, email, address, working hours, verified social/contact channels, appointment/contact form, map/location and CTA. Do not request unnecessary sensitive medical information.
+
+## 5. SINGLE ADMIN PANEL — `/admin/index.php`
+
+The admin is the central control room of the website.
+
+Internal sections:
+
+```text
+Dashboard
+Site / Doctor
+About
+Services
+Portfolio
+Requests
+Media
+Settings
+```
+
+These are **sections inside one `admin/index.php`**, never separate admin files.
+
+### Dashboard
+Show:
+- total requests
+- unread/new requests
+- total media
+- published services
+- portfolio item count
+- latest requests
+- latest media
+- basic site status
+
+Keep it functional, fast and simple.
+
+### Site / Doctor
+Manage `data/site.json`:
 - doctor name
-- professional title/specialty
-- professional portrait
-- short positioning statement
-- key statistics when verified
-- primary expertise
-- short biography
-- selected research/achievements
-- clinic/location summary
-- appointment CTA
-
-Primary action:
-
-**Qabulga yozilish**
-
----
-
-### `/about/` — Doctor haqida
-
-Purpose: professional biography and career credibility.
-
-Content:
-
-- full professional biography
-- education
-- career timeline
-- current position
-- previous positions
-- professional philosophy
-- languages
-- professional memberships when available
-
----
-
-### `/expertise/` — Mutaxassislik va faoliyat
-
-Purpose: explain exactly what the doctor specializes in.
-
-Content:
-
-- main specialties
-- clinical areas
-- conditions/areas of expertise
-- procedures or professional activities where appropriate
-- professional skills
-- relevant certifications
-- professional organizations
-
-Do not present unverified services as available services.
-
----
-
-### `/research/` — Ilmiy ishlar va yutuqlar
-
-Purpose: demonstrate academic and professional authority.
-
-Content:
-
-- research areas
-- publications
-- scientific projects
-- conferences/presentations
-- awards
-- professional achievements
-- selected media appearances when verified
-
-Publication data should preserve real title, authors, journal/source, year and identifiers/links when available.
-
----
-
-### `/contact/` — Aloqa va qabul
-
-Purpose: convert interest into a real contact/appointment.
-
-Content:
-
-- clinic/location information
-- phone
-- email
-- social/contact channels when verified
+- professional title
+- specialty
+- positioning statement
+- hero/profile image
+- logo/favicon when used
+- phone/email/address
 - working hours
-- appointment form
-- map/location link when available
-- clear non-emergency notice
+- Telegram/Instagram/other verified links
+- SEO title/description
+- global accent/settings
 
-Do not collect unnecessary sensitive medical information through a basic public form.
-
----
-
-## 7. ADMIN PANEL
-
-### `/admin/`
-
-Dashboard should provide a compact overview of:
-
-- profile/content status
-- available content sections
-- latest changes where implemented
-- contact/appointment information
-- upload status
-
-### `/admin/about/`
-
-Manage:
-
+### About
+Manage `data/about.json`:
 - biography
 - education
 - experience
+- career timeline
 - positions
 - philosophy
 - languages
 - memberships
-
-### `/admin/expertise/`
-
-Manage:
-
-- specialties
-- expertise items
-- clinical/professional activities
-- certifications related to expertise
-
-### `/admin/research/`
-
-Manage:
-
-- research
-- publications
-- conferences
 - achievements
-- awards
-- media
 
-### `/admin/contact/`
+### Services
+Manage `data/services.json`:
+- create/edit/delete
+- publish/unpublish
+- order
+- title
+- description
+- category
+- image
 
-Manage:
+### Portfolio
+Manage `data/portfolio.json`:
+- create/edit/delete
+- publish/unpublish
+- order
+- title
+- description
+- category
+- date/year
+- source/link
+- cover image
+- gallery media
+- video
 
+### Requests — CORE REQUIREMENT
+All public contact/appointment submissions must be stored in `data/requests.json`.
+
+Each request should contain:
+- unique ID
+- name
 - phone
-- email
-- addresses
-- working hours
-- social links
-- appointment/contact settings
+- email if collected
+- message/reason
+- created date/time
+- status
 
----
+Statuses:
+`new`, `read`, `contacted`, `completed`, `archived`
 
-## 8. JSON DATA ARCHITECTURE
+Admin actions:
+- open
+- mark read
+- mark contacted
+- mark completed
+- archive
+- delete
 
-Each public section reads its data from JSON.
+Unread requests must be clearly visible on the dashboard.
 
-```text
-data/
-├── doctor.json       # identity, title, portrait, stats, short bio
-├── about.json        # biography, education, experience, philosophy
-├── expertise.json    # specialties and professional activity
-├── research.json     # research, publications, achievements, media
-└── contact.json      # locations, contact details, appointment data
+Example:
+
+```json
+[
+  {
+    "id": "REQ-0001",
+    "name": "...",
+    "phone": "...",
+    "email": "...",
+    "message": "...",
+    "created_at": "2026-08-15 12:00:00",
+    "status": "new"
+  }
+]
 ```
 
-### Rules
+Never collect/store unnecessary sensitive medical information.
 
-- JSON must remain valid UTF-8.
-- Use consistent field names.
-- Do not duplicate the same fact unnecessarily across files.
-- Public pages must safely handle missing optional fields.
-- Invalid JSON must not produce raw PHP warnings to visitors.
-- Escape output with `htmlspecialchars()` or an equivalent safe helper.
+### Media — CORE REQUIREMENT
+One central media manager inside `/admin/index.php`.
 
----
+Admin must be able to:
+- upload image
+- upload video
+- preview
+- replace
+- delete
+- see filename/type
+- set image alt text
+- choose media for hero/background/portfolio/etc.
 
-## 9. UPLOADS
-
-Current upload root:
-
-```text
-uploads/
-└── profile/
-```
-
-The upload architecture may be expanded only when the related real content-management feature is implemented.
-
-Recommended future categories, only when actually needed:
+Storage:
 
 ```text
-uploads/
-├── profile/
-├── certificates/
-├── publications/
-├── awards/
-└── gallery/
+media/images/
+media/videos/
 ```
 
-### Upload security
+The admin should make it obvious **what a file is and where it is used**.
 
-Uploads must eventually enforce:
+### Settings
+Settings remain inside the same admin panel and update global/site data. Do not create `admin/settings.php`.
 
-- allowed MIME types/extensions
-- maximum file size
-- generated/controlled filenames
-- path traversal protection
-- executable-file prevention
-- server-side validation
-- safe storage permissions
+## 6. JSON ARCHITECTURE
 
-Never trust the original filename or client-provided MIME type.
+```text
+data/site.json
+ data/about.json
+ data/services.json
+ data/portfolio.json
+ data/requests.json
+```
 
----
+Rules:
+- valid UTF-8
+- predictable fields
+- preserve unrelated records on edit
+- validate before write
+- use file locking for writes where appropriate
+- handle missing/empty/invalid data gracefully
+- never expose raw PHP warnings to visitors
+- escape rendered values with `htmlspecialchars()` or a safe helper
+- do not hard-code editable content into templates
 
-## 10. SECURITY REQUIREMENTS
+## 7. MEDIA SECURITY
 
-Security is part of the core implementation, not an optional polish step.
+Uploads require server-side validation of extension, actual MIME type, size, filename and destination.
 
-### Admin
+Use generated safe filenames. Never trust client MIME, original filename or user-supplied paths. Prevent path traversal and PHP/script execution in media directories.
 
-- PHP session authentication
-- strong production password
-- secure session configuration
-- login protection
-- no hard-coded production secrets
-- no password stored in public JSON
+## 8. ADMIN SECURITY
 
-### Forms
+Protect `/admin/index.php` with PHP session authentication.
 
-- server-side validation
-- CSRF protection where state-changing forms are implemented
-- output escaping
-- safe error handling
-- rate limiting/abuse protection where appropriate
+Production credentials must not be stored in JSON or committed to GitHub.
 
-### Files
-
-- validate uploads server-side
-- prevent PHP/script execution in upload directories
-- prevent directory traversal
-- never expose secrets through JSON or source files
-
----
-
-## 11. ADMIN PASSWORD
-
-The admin currently supports the server environment variable:
+Preferred server configuration:
 
 ```text
 ADMIN_PASSWORD
 ```
 
-### Production requirement
+Use secure session handling. Unauthenticated visitors must never access admin data/actions.
 
-Set a strong unique password through the hosting/server environment.
+## 9. CONTACT FORM SECURITY
 
-The development fallback:
+Use server-side validation, CSRF protection, output escaping, safe JSON writing, graceful errors and basic abuse/rate protection where practical. Browser validation alone is never sufficient.
 
-```text
-CHANGE-ME-NOW
+## 10. DESIGN DIRECTION
+
+**Apple-inspired premium minimalism + modern medical personal brand.**
+
+The website must feel bright, expensive, calm, precise, human and trustworthy.
+
+### Visual rules
+- open white / very light gray canvas
+- premium restrained medical accent
+- strong editorial typography
+- generous whitespace
+- precise alignment
+- layered depth
+- subtle glass only where useful
+- refined borders and soft shadows
+- restrained micro-interactions
+- smooth lightweight motion
+
+Suggested tokens:
+
+```css
+--bg: #F5F5F3;
+--surface: #FFFFFF;
+--surface-soft: #EEEEEC;
+--text: #111827;
+--text-muted: #6B7280;
+--medical-accent: #174A5A;
+--accent-soft: #E8F0F2;
+--border: rgba(17,24,39,.08);
 ```
 
-**MUST NOT be used in production.**
+Do NOT use dark-first/cyberpunk aesthetics, neon overload, excessive gradients, generic Bootstrap cards, template layouts, excessive animation or visual clutter.
 
-Do not commit real passwords, API keys or other secrets to GitHub.
+The page is an open canvas. Use typography, photography, editorial blocks, large image compositions, restrained glass, statistics, timelines, profile blocks, media compositions and CTA. Do not turn every section into a rounded card.
 
----
+Motion: fade, reveal, translate, scale, blur, parallax and subtle hover/focus transitions. Support `prefers-reduced-motion`. No distracting infinite effects.
 
-## 12. PERFORMANCE
+## 11. RESPONSIVE
 
-The site should remain lightweight.
+Desktop, tablet and mobile must be intentionally composed, not simply scaled down.
 
-Priorities:
+Mobile priorities:
+1. identity
+2. portrait
+3. typography
+4. primary CTA
+5. navigation
+6. readability
 
-1. minimal HTTP requests
-2. optimized images
-3. no unnecessary libraries
-4. no framework bundle
-5. lightweight JavaScript
-6. lazy loading for non-critical images
-7. correct image dimensions
-8. efficient CSS
-9. cache-friendly static assets
-10. fast first contentful rendering
+## 12. MEDICAL CONTENT SAFETY
 
-Do not sacrifice performance for decorative animation.
+Never fabricate degrees, titles, years of experience, publications, awards, certificates, patient statistics, treatment outcomes, testimonials or medical claims. Use verified supplied information or explicit development placeholders.
 
----
+Do not expose identifiable patient information without authorization. This is a professional portfolio, not a substitute for medical evaluation or emergency service.
 
-## 13. ACCESSIBILITY
+## 13. SEO / ACCESSIBILITY / PERFORMANCE
 
-Required baseline:
+Public pages require unique title, meta description, semantic headings, meaningful alt text, clean navigation and appropriate Open Graph metadata.
 
-- semantic HTML5
-- logical heading hierarchy
-- keyboard-accessible navigation
-- visible focus states
-- meaningful image `alt` text
-- sufficient text/background contrast
-- accessible forms and labels
-- reduced-motion consideration
-- mobile-friendly touch targets
+Accessibility: semantic HTML, keyboard navigation, visible focus, form labels, sufficient contrast, reduced-motion support and usable touch targets.
 
-Accessibility is part of the final quality bar.
+Performance: optimized images, lazy loading for non-critical media, minimal JS, no unnecessary libraries and efficient CSS.
 
----
+## 14. AI AGENT EXECUTION PROTOCOL — MANDATORY
 
-## 14. SEO
-
-Each public page should have:
-
-- unique `<title>`
-- unique meta description
-- canonical URL when appropriate
-- semantic headings
-- descriptive image alt text
-- Open Graph metadata where useful
-- clean URLs
-- structured internal links
-
-Doctor identity, specialty and location should be represented accurately in metadata when real information is available.
-
-Do not use fabricated reviews, credentials or structured data.
-
----
-
-## 15. MEDICAL CONTENT RULES
-
-This is a professional medical portfolio.
-
-Therefore:
-
-- no fabricated medical claims
-- no guaranteed treatment outcomes
-- no fake patient statistics
-- no invented awards
-- no invented publications
-- no misleading before/after claims
-- no identifiable patient material without appropriate authorization
-- educational information must not be presented as individualized diagnosis
-- appointment/contact pages must not imply emergency response
-
-The portfolio communicates the doctor's verified professional profile; it is not a substitute for medical evaluation.
-
----
-
-## 16. DESIGN QUALITY BAR
-
-Every page must be evaluated against these principles:
-
-### Typography
-
-- strong hierarchy
-- restrained font sizes
-- readable body text
-- professional medical tone
-
-### Layout
-
-- consistent container width
-- intentional whitespace
-- clear visual rhythm
-- no overcrowded sections
-
-### Components
-
-- consistent radius
-- consistent borders
-- consistent shadows
-- consistent buttons
-- consistent interaction states
-
-### Motion
-
-- subtle
-- purposeful
-- fast
-- never distracting
-
-### Responsive
-
-Desktop, tablet and mobile must be designed deliberately rather than simply squeezed into a smaller viewport.
-
----
-
-## 17. DEVELOPMENT RULES
-
-Before changing code:
+Before writing code:
 
 1. Read this README completely.
-2. Read **CURRENT DEVELOPMENT STATUS**.
-3. Read **NEXT EXECUTION ORDER**.
-4. Audit the existing implementation.
-5. Reuse working code.
-6. Do not rewrite completed features without a reason.
-7. Make the smallest coherent change required for the current milestone.
-8. Test affected pages.
-9. Update this README before finishing the milestone.
-10. Record exactly where development stopped.
+2. Read `CURRENT DEVELOPMENT STATUS`.
+3. Read `NEXT EXECUTION ORDER`.
+4. Inspect the actual repository tree.
+5. Inspect every relevant existing file, JSON and media asset.
+6. Determine what is already complete.
+7. Continue from the exact documented next step.
 
-### Important
+Workflow:
 
-Do not continue from assumptions.
+**Inspect → Plan → Implement → Verify → Update README → Commit.**
 
-The README is the project's continuation contract between development sessions.
+Never:
+- blindly rewrite the repository
+- delete working functionality without reason
+- create duplicate admin pages
+- introduce frameworks or a database
+- hard-code editable content
+- invent medical information
+- claim completion without verification
 
----
+Make one coherent milestone at a time.
 
-# 18. CURRENT DEVELOPMENT STATUS
+## 15. README CONTINUATION PROTOCOL — MANDATORY
 
-**Last updated:** 2026-08-14
+This README is persistent development memory.
+
+After every meaningful milestone, replace the old `CURRENT DEVELOPMENT STATUS` with the current truth. Do not append contradictory history.
+
+Record:
+- completed work
+- files changed
+- current phase
+- remaining work
+- exact next action
+- known issues
+- last commit
+
+A new AI agent must understand where to continue without asking the previous agent what happened.
+
+# 16. CURRENT DEVELOPMENT STATUS
+
+**Phase:** 01 — Architecture / Specification
 
 ### Completed
+- [x] 5 public-page architecture defined
+- [x] single `/admin/index.php` architecture defined
+- [x] request management defined
+- [x] central media management defined
+- [x] JSON content architecture defined
+- [x] PHP + HTML + CSS + Vanilla JS + JSON + Apache confirmed
+- [x] premium light medical design direction defined
+- [x] README converted into master AI-agent instruction
 
-- [x] Repository audited at the top-level structure
-- [x] 5-page public architecture established
-- [x] 5-page admin architecture established
-- [x] JSON-driven content architecture established
-- [x] `data/` structure established
-- [x] `uploads/` structure established
-- [x] Public homepage rebuilt around the portfolio architecture
-- [x] README converted into the project's master specification
+### Current state
+Initial repository skeleton exists. The project architecture is now explicitly based on **one central admin panel** for content, requests, media and settings.
 
-### In progress
+### Next exact execution step
+1. Inspect existing `index.php` and all current project files.
+2. Build the premium homepage only.
+3. Connect editable identity/media values to `data/site.json` where applicable.
+4. Use real available media; never invent medical facts.
+5. Do not build other public pages yet.
+6. Do not build the full admin yet.
+7. Update this README after the homepage milestone.
 
-- [ ] Complete/verify all public page implementations
-- [ ] Complete/verify all admin editors
-- [ ] Finalize JSON schemas and real content
-- [ ] Finalize upload handling and security
-- [ ] Final visual refinement
+### After homepage
+1. `about.php`
+2. `services.php`
+3. `portfolio.php`
+4. `contact.php`
+5. single `/admin/index.php`
+6. JSON editing
+7. requests management
+8. media upload/manager
+9. security hardening
+10. SEO/accessibility/performance QA
 
-### Not yet complete
+## 17. DEFINITION OF DONE
 
-- [ ] Real doctor information
-- [ ] Real portrait/assets
-- [ ] Real certificates/publications
-- [ ] Production admin password configuration
-- [ ] Full SEO metadata
-- [ ] Final accessibility audit
-- [ ] Final performance audit
-- [ ] Production security audit
+A milestone is complete only when:
+- intended code exists
+- PHP syntax is valid
+- page renders
+- responsive behavior is considered
+- JSON reads/writes correctly where applicable
+- existing functionality is preserved
+- no obvious PHP/JS errors remain
+- media paths work
+- security requirements are respected
+- design matches this README
+- README status is updated
+- next exact step is documented
 
----
+The whole project is complete only when all 5 public pages, the **single admin panel**, JSON editing, requests, media management and final QA are complete.
 
-# 19. NEXT EXECUTION ORDER
-
-Execute strictly in this order unless a blocker requires otherwise.
-
-### PHASE 01 — Architecture audit
-
-- inspect every current file
-- verify routes
-- verify JSON loading
-- verify admin authentication
-- identify duplicate/unused files
-- remove only genuinely unnecessary files
-
-### PHASE 02 — Public pages
-
-Complete and polish:
-
-1. `/`
-2. `/about/`
-3. `/expertise/`
-4. `/research/`
-5. `/contact/`
-
-All pages must share one coherent visual system.
-
-### PHASE 03 — Admin
-
-Complete and polish:
-
-1. `/admin/`
-2. `/admin/about/`
-3. `/admin/expertise/`
-4. `/admin/research/`
-5. `/admin/contact/`
-
-Admin should edit the existing JSON data rather than introducing a database.
-
-### PHASE 04 — Data & uploads
-
-- finalize JSON schemas
-- validate JSON on read/write
-- implement secure upload handling where required
-- connect real assets
-
-### PHASE 05 — Quality
-
-- responsive audit
-- accessibility audit
-- security audit
-- SEO audit
-- performance audit
-- broken-link check
-- empty-data/error-state check
-
-### PHASE 06 — Finalization
-
-- replace every placeholder
-- verify every professional claim
-- verify contact details
-- verify all images
-- remove development fallback configuration
-- update README
-- record final completion state
-
----
-
-# 20. DEFINITION OF DONE
-
-The project is not considered complete until:
-
-- all 5 public pages work
-- all 5 admin pages work
-- JSON content can be safely edited
-- admin authentication works securely
-- uploads are validated
-- no fake professional information remains
-- all navigation links work
-- mobile layout is polished
-- desktop layout is polished
-- accessibility baseline passes
-- SEO metadata is complete
-- performance is acceptable
-- no unnecessary files remain
-- production secrets are not committed
-- README accurately describes the final state
-
----
-
-# 21. CONTINUATION POINT
-
-At the end of every development session, update this section.
+## 18. END-OF-SESSION REPORT
 
 ```text
-CURRENT STEP:
-[write exact task]
+DONE
 
-FILES CHANGED:
-[list exact files]
+Completed:
+- ...
 
-COMPLETED:
-[list completed items]
+Files changed:
+- ...
 
-REMAINING:
-[list remaining items]
+Current phase:
+- ...
 
-NEXT ACTION:
-[one exact next implementation step]
+Next exact step:
+- ...
 
-LAST COMMIT:
-[commit hash]
+Known issues:
+- None / ...
 ```
 
-The next development session must start from this section and then verify the actual repository state before editing.
+## FINAL PRINCIPLE
 
----
-
-# 22. PROJECT PRINCIPLE
-
-> **Less code. Better architecture. Better design. Real information. Zero unnecessary complexity.**
-
-The final result should feel like a **premium personal medical portfolio**, not a template and not a full clinic-management system.
-
-**Identity → Expertise → Evidence → Trust → Contact.**
+> **Identity → Expertise → Evidence → Trust → Contact.**
+>
+> **One website. One admin panel. JSON-driven content. Secure media. Real information. Premium design. Zero unnecessary complexity.**
