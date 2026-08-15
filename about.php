@@ -1,0 +1,1 @@
+<?php ?><!doctype html><html lang="uz"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Biz haqimizda — Jahongir Neuro</title></head><body><main><h1>Biz haqimizda</h1></main></body></html>
