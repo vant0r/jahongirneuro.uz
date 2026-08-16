@@ -1,11 +1,11 @@
 {
-  "intro":"Нейрохирургиянинг асосий йўналишлари ва мураккаб жарроҳлик амалиётлари.",
+  "intro":"Jalolov Jahongir Ibragimovichning asosiy neyroxirurgik yo‘nalishlari va jarrohlik amaliyotlari.",
   "items":[
-    {"category":"БОШ МИЯ","title":"Бош мия ўсмалари","description":"Бош мия ўсмалари бўйича нейрохирургик диагностика ва жарроҳлик амалиётлари."},
-    {"category":"ОРҚА МИЯ","title":"Орқа мия ўсмалари","description":"Орқа мия патологиялари ва ўсмалари бўйича хирургик даволаш."},
-    {"category":"УМУРТҚА","title":"Диск чурраси (грыжа)","description":"Умуртқа дисклари патологиялари, нерв компрессияси ва хирургик даволаш."},
-    {"category":"ТРАВМАТОЛОГИЯ","title":"Умуртқа синиқлари","description":"Умуртқа поғонаси жароҳатлари ва синиқларида нейрохирургик ёрдам."},
-    {"category":"КРАНИО-ВЕРТЕБРАЛ","title":"Арнольд — Киари синдроми","description":"Кранио-вертебрал соҳадаги патологияларни баҳолаш ва хирургик даволаш."},
-    {"category":"НЕЙРОХИРУРГИЯ","title":"Гидроцефалия","description":"Гидроцефалия ҳолатларида бемор ҳолатига мос нейрохирургик даволаш тактикаси."}
+    {"category":"БОШ МИЯ","title":"Бош мия ўсмалари","description":"Bosh miya o‘smalari bo‘yicha neyroxirurgik diagnostika va jarrohlik amaliyotlari."},
+    {"category":"ОРҚА МИЯ","title":"Орқа мия ўсмалари","description":"Orqa miya va umurtqa kanali o‘smalari bo‘yicha neyroxirurgik davolash."},
+    {"category":"УМУРТҚА","title":"Диск чурраси (грыжа)","description":"Disk churrasi, nerv kompressiyasi va umurtqa patologiyalarida jarrohlik davolash."},
+    {"category":"ТРАВМАТОЛОГИЯ","title":"Умуртқа синиқлари","description":"Umurtqa pog‘onasi jarohatlari va sinishlarida neyroxirurgik yordam."},
+    {"category":"КРАНИО-ВЕРТЕБРАЛ","title":"Арнольд — Киари синдроми","description":"Arnold–Kiari malformatsiyasi bilan bog‘liq neyroxirurgik holatlarni baholash va davolash."},
+    {"category":"НЕЙРОХИРУРГИЯ","title":"Гидроцефалия","description":"Gidrosefaliya holatlarida bemor holatiga mos neyroxirurgik davolash taktikasi."}
   ]
 }
