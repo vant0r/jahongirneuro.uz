@@ -1,46 +1,32 @@
 {
   "items": [
-    {"name":"IMG_3802.HEIC","path":"uploads/IMG_3802.HEIC","type":"image","category":"international","title":"Professional uchrashuv"},
-    {"name":"IMG_3801.HEIC","path":"uploads/IMG_3801.HEIC","type":"image","category":"international","title":"Professional uchrashuv"},
-    {"name":"IMG_3800.HEIC","path":"uploads/IMG_3800.HEIC","type":"image","category":"international","title":"Professional uchrashuv"},
-    {"name":"IMG_3803.HEIC","path":"uploads/IMG_3803.HEIC","type":"image","category":"clinical","title":"Klinik amaliyot"},
-    {"name":"IMG_3805.HEIC","path":"uploads/IMG_3805.HEIC","type":"image","category":"clinical","title":"Klinik amaliyot"},
-    {"name":"IMG_3807.HEIC","path":"uploads/IMG_3807.HEIC","type":"image","category":"clinical","title":"Bemor bilan ishlash"},
-    {"name":"IMG_3813.HEIC","path":"uploads/IMG_3813.HEIC","type":"image","category":"international","title":"Professional uchrashuv"},
-    {"name":"IMG_3814.HEIC","path":"uploads/IMG_3814.HEIC","type":"image","category":"international","title":"Professional uchrashuv"},
-    {"name":"IMG_3815.HEIC","path":"uploads/IMG_3815.HEIC","type":"image","category":"portrait","title":"Professional portret"},
-    {"name":"IMG_3794.HEIC","path":"uploads/IMG_3794.HEIC","type":"image","category":"international","title":"Professional uchrashuv"},
-    {"name":"IMG_3773.HEIC","path":"uploads/IMG_3773.HEIC","type":"image","category":"consultation","title":"Konsultatsiya"},
-    {"name":"IMG_3770.HEIC","path":"uploads/IMG_3770.HEIC","type":"image","category":"consultation","title":"Konsultatsiya"},
-    {"name":"IMG_3686.HEIC","path":"uploads/IMG_3686.HEIC","type":"image","category":"surgery","title":"Operatsion amaliyot"},
-    {"name":"IMG_3687.HEIC","path":"uploads/IMG_3687.HEIC","type":"image","category":"surgery","title":"Operatsion amaliyot"},
-    {"name":"IMG_3688.HEIC","path":"uploads/IMG_3688.HEIC","type":"image","category":"surgery","title":"Operatsion amaliyot"},
-    {"name":"IMG_3680.HEIC","path":"uploads/IMG_3680.HEIC","type":"image","category":"surgery","title":"Operatsion amaliyot"},
-    {"name":"IMG_3675.HEIC","path":"uploads/IMG_3675.HEIC","type":"image","category":"surgery","title":"Operatsion amaliyot"},
-    {"name":"IMG_3682.MOV","path":"uploads/IMG_3682.MOV","type":"video","category":"surgery","title":"Operatsion video"},
-    {"name":"IMG_3648.HEIC","path":"uploads/IMG_3648.HEIC","type":"image","category":"surgery","title":"Operatsion amaliyot"},
-    {"name":"IMG_3642.HEIC","path":"uploads/IMG_3642.HEIC","type":"image","category":"surgery","title":"Operatsion amaliyot"},
-    {"name":"IMG_3636.HEIC","path":"uploads/IMG_3636.HEIC","type":"image","category":"surgery","title":"Operatsion amaliyot"},
-    {"name":"IMG_3536.HEIC","path":"uploads/IMG_3536.HEIC","type":"image","category":"consultation","title":"Klinik konsultatsiya"},
-    {"name":"IMG_3530.HEIC","path":"uploads/IMG_3530.HEIC","type":"image","category":"clinical","title":"Klinik faoliyat"},
-    {"name":"IMG_3529.HEIC","path":"uploads/IMG_3529.HEIC","type":"image","category":"clinical","title":"Klinik faoliyat"},
-    {"name":"IMG_3528.HEIC","path":"uploads/IMG_3528.HEIC","type":"image","category":"clinical","title":"Klinik faoliyat"},
-    {"name":"IMG_3524.HEIC","path":"uploads/IMG_3524.HEIC","type":"image","category":"clinical","title":"Klinik faoliyat"},
-    {"name":"IMG_3520.HEIC","path":"uploads/IMG_3520.HEIC","type":"image","category":"clinical","title":"Bemor bilan ishlash"},
-    {"name":"IMG_3521.HEIC","path":"uploads/IMG_3521.HEIC","type":"image","category":"clinical","title":"Bemor bilan ishlash"},
-    {"name":"IMG_3518.HEIC","path":"uploads/IMG_3518.HEIC","type":"image","category":"clinical","title":"Klinik faoliyat"},
-    {"name":"IMG_3519.HEIC","path":"uploads/IMG_3519.HEIC","type":"image","category":"clinical","title":"Klinik muhit"},
-    {"name":"IMG_3517.HEIC","path":"uploads/IMG_3517.HEIC","type":"image","category":"clinical","title":"Klinik faoliyat"},
-    {"name":"IMG_3312.HEIC","path":"uploads/IMG_3312.HEIC","type":"image","category":"surgery","title":"Operatsion portret"},
-    {"name":"IMG_3305.HEIC","path":"uploads/IMG_3305.HEIC","type":"image","category":"surgery","title":"Operatsion amaliyot"},
-    {"name":"IMG_3293.HEIC","path":"uploads/IMG_3293.HEIC","type":"image","category":"surgery","title":"Operatsion amaliyot"},
-    {"name":"IMG_3280.HEIC","path":"uploads/IMG_3280.HEIC","type":"image","category":"surgery","title":"Operatsion jamoa"},
-    {"name":"IMG_3198.HEIC","path":"uploads/IMG_3198.HEIC","type":"image","category":"surgery","title":"Operatsion amaliyot"},
-    {"name":"IMG_3199.HEIC","path":"uploads/IMG_3199.HEIC","type":"image","category":"surgery","title":"Operatsion amaliyot"},
-    {"name":"IMG_2805.HEIC","path":"uploads/IMG_2805.HEIC","type":"image","category":"surgery","title":"Operatsion jamoa"},
-    {"name":"photo_1_2026-08-16_08-05-32.jpg","path":"uploads/photo_1_2026-08-16_08-05-32.jpg","type":"image","category":"professional","title":"Professional faoliyat"},
-    {"name":"photo_2_2026-08-16_08-05-32.jpg","path":"uploads/photo_2_2026-08-16_08-05-32.jpg","type":"image","category":"professional","title":"Professional faoliyat"},
-    {"name":"photo_3_2026-08-16_08-05-32.jpg","path":"uploads/photo_3_2026-08-16_08-05-32.jpg","type":"image","category":"portrait","title":"Asosiy professional portret"},
-    {"name":"photo_4_2026-08-16_08-05-32.jpg","path":"uploads/photo_4_2026-08-16_08-05-32.jpg","type":"image","category":"professional","title":"Professional faoliyat"}
+    {
+      "name": "photo_3_2026-08-16_08-05-32.jpg",
+      "path": "uploads/photo_3_2026-08-16_08-05-32.jpg",
+      "type": "image",
+      "category": "portrait",
+      "title": "Asosiy professional portret"
+    },
+    {
+      "name": "photo_4_2026-08-16_08-05-32.jpg",
+      "path": "uploads/photo_4_2026-08-16_08-05-32.jpg",
+      "type": "image",
+      "category": "professional",
+      "title": "Professional profil"
+    },
+    {
+      "name": "photo_1_2026-08-16_08-05-32.jpg",
+      "path": "uploads/photo_1_2026-08-16_08-05-32.jpg",
+      "type": "image",
+      "category": "professional",
+      "title": "Professional faoliyat"
+    },
+    {
+      "name": "photo_2_2026-08-16_08-05-32.jpg",
+      "path": "uploads/photo_2_2026-08-16_08-05-32.jpg",
+      "type": "image",
+      "category": "professional",
+      "title": "Professional faoliyat"
+    }
   ]
 }
