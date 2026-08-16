@@ -15,13 +15,16 @@ function nav(string $active): string {
 }
 
 function media_card(array $item, int $index = 0): string {
-    $src = h(media_src($item));
+    $srcRaw = media_src($item);
+    $src = h($srcRaw);
     $title = h($item['title'] ?? 'Professional media');
     $category = h($item['category'] ?? 'professional');
     $type = strtolower((string) ($item['type'] ?? 'image'));
     $ext = strtolower(pathinfo((string) ($item['name'] ?? ''), PATHINFO_EXTENSION));
     if ($type === 'video' || $ext === 'mov') {
-        $visual = '<video controls preload="metadata" playsinline><source src="'.$src.'" type="video/quicktime"></video>';
+        $visual = '<video controls preload="metadata" playsinline><source src="'.$src.'" type="video/quicktime">Video brauzerda ochilmadi.</video>';
+    } elseif ($ext === 'heic' || $ext === 'heif') {
+        $visual = '<div class="media-heic-wrap"><img class="media-heic-preview" data-heic-src="'.$src.'" alt="'.$title.' — Jahongir Neuro" loading="lazy" decoding="async"><div class="media-heic-fallback"><span>HEIC</span><strong>'.h($item['name'] ?? 'Original fayl').'</strong><small>Preview yuklanmoqda…</small><a href="'.$src.'" target="_blank" rel="noopener noreferrer">Original faylni ochish ↗</a></div></div>';
     } else {
         $visual = '<img src="'.$src.'" alt="'.$title.' — Jahongir Neuro" loading="lazy" decoding="async">';
     }
@@ -38,6 +41,7 @@ function site_header(string $active, string $title = ''): void { ?>
 <meta name="description" content="Jahongir Neuro — premium professional neyroxirurg portfolio.">
 <title><?= page_title($title) ?></title>
 <link rel="stylesheet" href="/assets/css/app.css">
+<script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js" defer></script>
 </head>
 <body>
 <div class="site-noise" aria-hidden="true"></div>
@@ -56,6 +60,9 @@ function site_footer(): void { ?>
   <div><span>© <?= current_year() ?> Jahongir Neuro</span><a href="/contact.php">Bog‘lanish ↗</a></div>
 </footer>
 <script src="/assets/js/app.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('[data-heic-src]').forEach(img=>{const convert=async()=>{try{if(typeof window.heic2any!=='function')throw new Error('converter unavailable');const res=await fetch(img.dataset.heicSrc,{credentials:'same-origin',cache:'force-cache'});if(!res.ok)throw new Error('HTTP '+res.status);const blob=await res.blob();const out=await window.heic2any({blob,type:'image/jpeg',quality:.88});img.src=URL.createObjectURL(Array.isArray(out)?out[0]:out);img.closest('.media-heic-wrap')?.classList.add('ready')}catch(e){img.closest('.media-heic-wrap')?.classList.add('failed')}};if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){io.unobserve(e.target);convert()}}),{rootMargin:'300px'});io.observe(img)}else convert()})});
+</script>
 </body>
 </html>
 <?php }
