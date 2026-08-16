@@ -33,8 +33,8 @@ jahongirneuro.uz/
 │   ├── site.json
 │   ├── about.json
 │   ├── services.json
-│   └── portfolio.json
-│   ├── requests.json
+│   ├── portfolio.json
+│   └── requests.json
 ├── media/
 │   ├── images/
 │   └── videos/
@@ -43,14 +43,12 @@ jahongirneuro.uz/
 
 ### CRITICAL ARCHITECTURE RULE
 
-There is **ONE and ONLY ONE admin panel**: `/admin/index.php`.
-
-Do NOT create separate admin pages. All management functions are internal sections/tabs/views of the single admin page.
+There is **ONE and ONLY ONE admin panel**: `/admin/index.php`. Do NOT create separate admin pages. All management functions are internal sections/tabs/views of the single admin page.
 
 ## PUBLIC PAGES
 
 ### `/index.php` — HOME
-First impression, identity, trust and conversion. Recommended flow: minimal navigation, doctor hero/identity, positioning statement, verified statistics, expertise preview, biography preview, selected research/achievements/media, credibility/trust, appointment CTA and footer. Never put important text over the doctor's face.
+First impression, identity, trust and conversion. Minimal navigation, doctor hero/identity, positioning statement, verified statistics, expertise preview, biography preview, selected research/achievements/media, credibility/trust, appointment CTA and footer. Never put important text over the doctor's face.
 
 ### `/about.php` — ABOUT
 Biography, education, career timeline, current/previous positions, professional philosophy, languages, memberships and verified achievements.
@@ -84,18 +82,10 @@ Manage `data/services.json`: create/edit/delete, publish/unpublish, order, title
 Manage `data/portfolio.json`: create/edit/delete, publish/unpublish, order, title, description, category, date/year, source/link, cover image, gallery media and video.
 
 ### Requests — CORE REQUIREMENT
-All public contact/appointment submissions are stored in `data/requests.json`.
-
-Fields: unique ID, name, phone, email if collected, message/reason, created date/time and status.
-
-Statuses: `new`, `read`, `contacted`, `completed`, `archived`.
-
-Admin actions: open, mark read, mark contacted, mark completed, archive and delete. Unread requests must be clearly visible on the dashboard. Never collect/store unnecessary sensitive medical information.
+All public contact/appointment submissions are stored in `data/requests.json`. Fields: unique ID, name, phone, email if collected, message/reason, created date/time and status. Statuses: `new`, `read`, `contacted`, `completed`, `archived`. Admin actions: open, mark read, mark contacted, mark completed, archive and delete. Unread requests must be clearly visible on the dashboard. Never collect/store unnecessary sensitive medical information.
 
 ### Media — CORE REQUIREMENT
-One central media manager inside `/admin/index.php`. It must support image/video upload, preview, replace, delete, filename/type display, image alt text and selecting media for hero/background/portfolio/etc.
-
-Storage: `media/images/` and `media/videos/`.
+One central media manager inside `/admin/index.php`. It must support image/video upload, preview, replace, delete, filename/type display, image alt text and selecting media for hero/background/portfolio/etc. Storage: `media/images/` and `media/videos/`.
 
 ### Settings
 Settings remain inside the same admin panel.
@@ -104,34 +94,24 @@ Settings remain inside the same admin panel.
 
 All editable public content is JSON-driven. Use valid UTF-8, predictable fields, preserve unrelated records, validate before writes, use file locking where appropriate, handle missing/invalid data gracefully and escape rendered output.
 
-## MEDIA / ADMIN / FORM SECURITY
+## SECURITY
 
-Uploads require server-side validation of extension, actual MIME type, size, filename and destination. Use generated safe filenames. Prevent path traversal and PHP/script execution in media directories.
-
-Protect `/admin/index.php` with PHP session authentication. Production credentials must not be stored in JSON or committed to GitHub; use server configuration such as `ADMIN_PASSWORD`.
-
-Public forms require server-side validation, CSRF protection, output escaping, safe JSON writing, graceful errors and basic abuse/rate protection where practical.
+Uploads require server-side validation of extension, actual MIME type, size, filename and destination. Use generated safe filenames. Prevent path traversal and script execution in media directories. Protect `/admin/index.php` with PHP session authentication. Production credentials must not be stored in JSON or committed to GitHub; use server configuration such as `ADMIN_PASSWORD`. Public forms require server-side validation, CSRF protection, output escaping, safe JSON writing, graceful errors and basic abuse/rate protection where practical.
 
 ## DESIGN DIRECTION
 
-**Apple-inspired premium minimalism + modern medical personal brand.**
-
-The site must feel bright, expensive, calm, precise, human and trustworthy.
+**Apple-inspired premium minimalism + modern medical personal brand.** The site must feel bright, expensive, calm, precise, human and trustworthy.
 
 Visual rules: open white/light-gray canvas, **premium green as primary accent**, strong editorial typography, generous whitespace, precise alignment, layered depth, restrained glass, refined borders, soft shadows, subtle micro-interactions and smooth lightweight motion.
 
-Green direction:
-
 ```css
---medical-accent: #0F5C4D;
---medical-accent-deep: #174F45;
---accent-soft: #E3EEEA;
---accent-pale: #EEF5F1;
+--medical-accent:#0F5C4D;
+--medical-accent-deep:#174F45;
+--accent-soft:#E3EEEA;
+--accent-pale:#EEF5F1;
 ```
 
-Green must feel medical, premium and natural — never neon/cyberpunk.
-
-Do not turn every section into a rounded card. Avoid excessive gradients, visual clutter, template layouts and noisy animation. Support `prefers-reduced-motion`.
+Green must feel medical, premium and natural — never neon/cyberpunk. Do not turn every section into a rounded card. Avoid excessive gradients, visual clutter, template layouts and noisy animation. Support `prefers-reduced-motion`.
 
 ## RESPONSIVE / MEDICAL SAFETY / QUALITY
 
@@ -141,13 +121,7 @@ Never fabricate degrees, titles, experience, publications, awards, certificates,
 
 ## AI AGENT EXECUTION PROTOCOL — MANDATORY
 
-Before writing code:
-1. Read this README completely.
-2. Read `CURRENT DEVELOPMENT STATUS`.
-3. Inspect the actual repository tree.
-4. Inspect every relevant existing file, JSON and media asset.
-5. Determine what is already complete.
-6. Continue from the exact documented next step.
+Before writing code: (1) read this README completely, (2) read `CURRENT DEVELOPMENT STATUS`, (3) inspect actual repository tree, (4) inspect every relevant existing file, JSON and media asset, (5) determine what is already complete, (6) continue from the exact documented next step.
 
 Workflow: **Inspect → Plan → Implement → Verify → Update README → Commit.**
 
@@ -155,9 +129,7 @@ Never blindly rewrite the repository, delete working functionality without reaso
 
 ## README CONTINUATION PROTOCOL — MANDATORY
 
-This README is persistent development memory. After every meaningful milestone, replace the old `CURRENT DEVELOPMENT STATUS` with the current truth. Do not append contradictory old status.
-
-Record completed work, files changed, current phase, remaining work, exact next action, known issues and last commit.
+This README is persistent development memory. After every meaningful milestone, replace the old `CURRENT DEVELOPMENT STATUS` with the current truth. Do not append contradictory old status. Record completed work, files changed, current phase, remaining work, exact next action, known issues and last commit.
 
 # CURRENT DEVELOPMENT STATUS
 
@@ -172,37 +144,38 @@ Record completed work, files changed, current phase, remaining work, exact next 
 - [x] PHP + HTML + CSS + Vanilla JS + JSON + Apache confirmed
 - [x] premium light medical design direction defined
 - [x] premium green accent direction defined and applied
-- [x] homepage visual system implemented in `index.php`
+- [x] homepage implemented
 - [x] responsive homepage implemented
 - [x] reduced-motion support implemented
 - [x] public navigation paths corrected
-- [x] `about.php` implemented as a premium editorial About page
+- [x] `about.php` implemented as premium editorial About page
 - [x] About page reads existing doctor/about JSON data
-- [x] `services.php` implemented as a premium editorial expertise/services page
-- [x] Services page reads `data/expertise.json`
-- [x] Services page uses a distinct composition instead of copying About
-- [x] Services page uses the premium green medical visual system
-- [x] Services page is responsive and supports reduced motion
+- [x] `services.php` implemented as premium editorial expertise/services page
+- [x] Services page reads existing expertise JSON data
+- [x] `portfolio.php` implemented as premium evidence/research/achievements page
+- [x] Portfolio page supports flexible existing JSON shapes without inventing professional facts
+- [x] Portfolio page uses distinct editorial/media composition
+- [x] Portfolio page uses premium green medical visual system
+- [x] Portfolio page is responsive and supports reduced motion
 
 ### Current state
-`index.php`, `about.php` and `services.php` are implemented as the first three designed public pages. The Services page uses the existing verified-looking project content source `data/expertise.json` and does not invent additional medical services.
+`index.php`, `about.php`, `services.php` and `portfolio.php` are implemented as the first four designed public pages. `portfolio.php` safely reads `data/portfolio.json` when present and displays an explicit empty state when portfolio data has not yet been entered.
 
 ### Next exact execution step
-1. Inspect the existing `portfolio.php` and all relevant research/portfolio JSON files.
-2. Build `portfolio.php` as a premium evidence/research/achievements page.
-3. Keep the green medical design language but create a distinct editorial media/research composition.
-4. Read existing JSON and media before coding.
+1. Inspect the existing `contact.php`, relevant site/contact JSON and any current form implementation.
+2. Build `contact.php` as a premium contact + appointment-request page.
+3. Implement secure server-side request validation and JSON storage in `data/requests.json` without collecting unnecessary sensitive medical information.
+4. Keep the premium green medical visual system but make the contact page conversion-focused and distinct from the other pages.
 5. Do not build the admin yet.
-6. Update this README after the Portfolio milestone.
+6. Update this README after the Contact milestone.
 
-### After Portfolio
-1. `contact.php`
-2. single `/admin/index.php`
-3. JSON editing
-4. requests management
-5. media upload/manager
-6. security hardening
-7. SEO/accessibility/performance QA
+### After Contact
+1. single `/admin/index.php`
+2. JSON editors
+3. requests management
+4. media upload/manager
+5. authentication/security hardening
+6. SEO/accessibility/performance QA
 
 ## DEFINITION OF DONE
 
