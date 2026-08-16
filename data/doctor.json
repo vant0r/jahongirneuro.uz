@@ -1,7 +1,17 @@
 {
-  "name":"Dr. Jahongir",
-  "short_name":"Jahongir",
-  "title":"Nevrolog",
-  "bio":"Zamonaviy diagnostika, klinik tajriba va individual yondashuv asosida nevrologik salomatlikka xizmat qiluvchi shifokor.",
-  "stats":[{"value":"10+","label":"yillik tajriba"},{"value":"15K+","label":"bemor"},{"value":"20+","label":"sertifikat"},{"value":"30+","label":"ilmiy ish"}]
+  "name":"Jalolov Jahongir Ibragimovich",
+  "short_name":"Jahongir Jalolov",
+  "title":"Врач-нейрохирург",
+  "position":"Хаят Медикал клиникаси нейрохирургия бўлим бошлиғи ҳамда клиника бош шифокори",
+  "clinic":"Хаят Медикал",
+  "city":"Фарғона шаҳри",
+  "academic_degree":"Илмий даража йўқ",
+  "experience":"5 йиллик тажриба",
+  "bio":"Jalolov Jahongir Ibragimovich — врач-нейрохирург, Хаят Медикал клиникаси нейрохирургия бўлим бошлиғи ҳамда клиника бош шифокори. Нейрохирургияда 5 йиллик клиник тажрибага эга.",
+  "stats":[
+    {"value":"5+","label":"йиллик тажриба"},
+    {"value":"200+","label":"бош мия операциялари"},
+    {"value":"1000+","label":"орқа мия ва умуртқа операциялари"},
+    {"value":"5000+","label":"мамнун беморлар"}
+  ]
 }
