@@ -208,24 +208,6 @@ Admin actions:
 
 Unread requests must be clearly visible on the dashboard.
 
-Example:
-
-```json
-[
-  {
-    "id": "REQ-0001",
-    "name": "...",
-    "phone": "...",
-    "email": "...",
-    "message": "...",
-    "created_at": "2026-08-15 12:00:00",
-    "status": "new"
-  }
-]
-```
-
-Never collect/store unnecessary sensitive medical information.
-
 ### Media — CORE REQUIREMENT
 One central media manager inside `/admin/index.php`.
 
@@ -304,7 +286,7 @@ The website must feel bright, expensive, calm, precise, human and trustworthy.
 
 ### Visual rules
 - open white / very light gray canvas
-- premium restrained medical accent
+- **premium green is the primary accent**
 - strong editorial typography
 - generous whitespace
 - precise alignment
@@ -314,20 +296,16 @@ The website must feel bright, expensive, calm, precise, human and trustworthy.
 - restrained micro-interactions
 - smooth lightweight motion
 
-Suggested tokens:
+Current primary green direction:
 
 ```css
---bg: #F5F5F3;
---surface: #FFFFFF;
---surface-soft: #EEEEEC;
---text: #111827;
---text-muted: #6B7280;
---medical-accent: #174A5A;
---accent-soft: #E8F0F2;
---border: rgba(17,24,39,.08);
+--medical-accent: #0F5C4D;
+--medical-accent-deep: #174F45;
+--accent-soft: #E3EEEA;
+--accent-pale: #EEF5F1;
 ```
 
-Do NOT use dark-first/cyberpunk aesthetics, neon overload, excessive gradients, generic Bootstrap cards, template layouts, excessive animation or visual clutter.
+Green must feel **medical, premium and natural**, not neon or cyberpunk.
 
 The page is an open canvas. Use typography, photography, editorial blocks, large image compositions, restrained glass, statistics, timelines, profile blocks, media compositions and CTA. Do not turn every section into a rounded card.
 
@@ -405,7 +383,7 @@ A new AI agent must understand where to continue without asking the previous age
 
 # 16. CURRENT DEVELOPMENT STATUS
 
-**Phase:** 01 — Architecture / Specification
+**Phase:** 02 — Premium Homepage Implementation
 
 ### Completed
 - [x] 5 public-page architecture defined
@@ -415,21 +393,29 @@ A new AI agent must understand where to continue without asking the previous age
 - [x] JSON content architecture defined
 - [x] PHP + HTML + CSS + Vanilla JS + JSON + Apache confirmed
 - [x] premium light medical design direction defined
-- [x] README converted into master AI-agent instruction
+- [x] **premium green accent direction implemented**
+- [x] homepage visual system implemented in `index.php`
+- [x] responsive homepage layout implemented
+- [x] reduced-motion support implemented
+- [x] public navigation paths corrected to the actual PHP pages
+- [x] homepage data loading and output escaping retained
 
 ### Current state
-Initial repository skeleton exists. The project architecture is now explicitly based on **one central admin panel** for content, requests, media and settings.
+`index.php` now contains the first premium homepage implementation: floating glass navigation, large editorial doctor hero, green medical accent system, portrait area, verified-data stats, biography preview, expertise preview, research preview, contact CTA and responsive layouts.
+
+The current homepage uses the existing JSON sources `doctor.json`, `about.json`, `expertise.json`, `research.json` and `contact.json`. The portrait path is prepared for `media/images/doctor.jpg`; if it is not present, the page shows a controlled placeholder instead of a broken image.
+
+### Important implementation note
+The repository's current data files still contain development placeholder content in some fields. Do not present those placeholders as verified real-world claims when polishing production content.
 
 ### Next exact execution step
-1. Inspect existing `index.php` and all current project files.
-2. Build the premium homepage only.
-3. Connect editable identity/media values to `data/site.json` where applicable.
-4. Use real available media; never invent medical facts.
-5. Do not build other public pages yet.
-6. Do not build the full admin yet.
-7. Update this README after the homepage milestone.
+1. Inspect the rendered homepage and existing media assets.
+2. Refine `index.php` only where the visual result needs improvement.
+3. Do not create the full admin yet.
+4. After homepage visual approval, implement `about.php` as the next public page.
+5. Update this README again after that milestone.
 
-### After homepage
+### After homepage approval
 1. `about.php`
 2. `services.php`
 3. `portfolio.php`
@@ -484,4 +470,4 @@ Known issues:
 
 > **Identity → Expertise → Evidence → Trust → Contact.**
 >
-> **One website. One admin panel. JSON-driven content. Secure media. Real information. Premium design. Zero unnecessary complexity.**
+> **One website. One admin panel. JSON-driven content. Secure media. Real information. Premium green medical identity. Zero unnecessary complexity.**
