@@ -1,0 +1,52 @@
+name: Convert HEIC to PNG
+
+on:
+  push:
+    paths:
+      - 'uploads/**/*.HEIC'
+      - 'uploads/**/*.heic'
+      - '.github/workflows/convert-heic.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install HEIC tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libheif-examples
+
+      - name: Convert HEIC images to PNG
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p assets/images/heic
+          shopt -s nullglob nocaseglob
+          for file in uploads/*.heic; do
+            name="$(basename "$file")"
+            base="${name%.*}"
+            heif-convert "$file" "assets/images/heic/${base}.png"
+          done
+
+      - name: Commit generated PNG files
+        shell: bash
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/images/heic
+          if git diff --cached --quiet; then
+            echo "No new PNG files to commit."
+            exit 0
+          fi
+          git commit -m "Convert uploaded HEIC images to PNG"
+          git push
