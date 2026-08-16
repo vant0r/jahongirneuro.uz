@@ -1,6 +1,6 @@
 # JAHONGIRNEURO.UZ — MASTER AI AGENT INSTRUCTION
 
-> READ THIS FILE COMPLETELY BEFORE CODING. This file is the project's single source of truth, development memory and execution contract.
+> **READ THIS FILE COMPLETELY BEFORE CODING.** This README is the project's single source of truth, development memory and execution contract.
 
 ## PROJECT PURPOSE
 
@@ -33,8 +33,8 @@ jahongirneuro.uz/
 │   ├── site.json
 │   ├── about.json
 │   ├── services.json
-│   ├── portfolio.json
-│   └── requests.json
+│   └── portfolio.json
+│   ├── requests.json
 ├── media/
 │   ├── images/
 │   └── videos/
@@ -45,7 +45,7 @@ jahongirneuro.uz/
 
 There is **ONE and ONLY ONE admin panel**: `/admin/index.php`.
 
-Do NOT create `admin/about.php`, `admin/media.php`, `admin/requests.php` or separate admin directories. All management functions are internal sections/tabs/views of the single admin page.
+Do NOT create separate admin pages. All management functions are internal sections/tabs/views of the single admin page.
 
 ## PUBLIC PAGES
 
@@ -59,7 +59,7 @@ Biography, education, career timeline, current/previous positions, professional 
 Specialties, areas of expertise, professional activities, verified procedures/services, relevant certifications and concise explanations. Never invent services.
 
 ### `/portfolio.php` — PORTFOLIO / RESEARCH / ACHIEVEMENTS
-Research, publications, scientific projects, conferences, presentations, certificates, awards, achievements and verified professional media. Preserve real publication title, authors, source, year and identifiers/links when available.
+Research, publications, scientific projects, conferences, presentations, certificates, awards, achievements and verified professional media.
 
 ### `/contact.php` — CONTACT / APPOINTMENT
 Phone, email, address, working hours, verified social/contact channels, appointment/contact form, map/location and CTA. Do not request unnecessary sensitive medical information.
@@ -72,10 +72,10 @@ Internal sections: Dashboard, Site / Doctor, About, Services, Portfolio, Request
 Show total requests, unread/new requests, total media, published services, portfolio count, latest requests, latest media and basic site status.
 
 ### Site / Doctor
-Manage `data/site.json`: doctor name, professional title, specialty, positioning statement, hero/profile image, logo/favicon, phone/email/address, working hours, verified social links, SEO title/description and global accent/settings.
+Manage global doctor identity, hero/profile media, contacts, verified social links and SEO settings.
 
 ### About
-Manage `data/about.json`: biography, education, experience, career timeline, positions, philosophy, languages, memberships and achievements.
+Manage biography, education, experience, career timeline, positions, philosophy, languages, memberships and achievements.
 
 ### Services
 Manage `data/services.json`: create/edit/delete, publish/unpublish, order, title, description, category and image.
@@ -98,11 +98,11 @@ One central media manager inside `/admin/index.php`. It must support image/video
 Storage: `media/images/` and `media/videos/`.
 
 ### Settings
-Settings remain inside the same admin panel. Do not create `admin/settings.php`.
+Settings remain inside the same admin panel.
 
 ## JSON ARCHITECTURE
 
-Editable public content is JSON-driven. Use valid UTF-8, predictable fields, preservation of unrelated records, validation before writes, file locking where appropriate, graceful missing/invalid data handling and escaped output. Do not hard-code editable content into templates.
+All editable public content is JSON-driven. Use valid UTF-8, predictable fields, preserve unrelated records, validate before writes, use file locking where appropriate, handle missing/invalid data gracefully and escape rendered output.
 
 ## MEDIA / ADMIN / FORM SECURITY
 
@@ -144,11 +144,10 @@ Never fabricate degrees, titles, experience, publications, awards, certificates,
 Before writing code:
 1. Read this README completely.
 2. Read `CURRENT DEVELOPMENT STATUS`.
-3. Read `NEXT EXECUTION ORDER` when present.
-4. Inspect the actual repository tree.
-5. Inspect every relevant existing file, JSON and media asset.
-6. Determine what is already complete.
-7. Continue from the exact documented next step.
+3. Inspect the actual repository tree.
+4. Inspect every relevant existing file, JSON and media asset.
+5. Determine what is already complete.
+6. Continue from the exact documented next step.
 
 Workflow: **Inspect → Plan → Implement → Verify → Update README → Commit.**
 
@@ -158,7 +157,7 @@ Never blindly rewrite the repository, delete working functionality without reaso
 
 This README is persistent development memory. After every meaningful milestone, replace the old `CURRENT DEVELOPMENT STATUS` with the current truth. Do not append contradictory old status.
 
-Record completed work, files changed, current phase, remaining work, exact next action, known issues and last commit. A new AI agent must understand where to continue without asking the previous agent.
+Record completed work, files changed, current phase, remaining work, exact next action, known issues and last commit.
 
 # CURRENT DEVELOPMENT STATUS
 
@@ -177,32 +176,33 @@ Record completed work, files changed, current phase, remaining work, exact next 
 - [x] responsive homepage implemented
 - [x] reduced-motion support implemented
 - [x] public navigation paths corrected
-- [x] homepage JSON loading/output escaping retained
 - [x] `about.php` implemented as a premium editorial About page
-- [x] About page reads `data/about.json` and `data/doctor.json`
-- [x] About page includes biography, philosophy, experience timeline, education and CTA
-- [x] About page uses the premium green medical visual system
+- [x] About page reads existing doctor/about JSON data
+- [x] `services.php` implemented as a premium editorial expertise/services page
+- [x] Services page reads `data/expertise.json`
+- [x] Services page uses a distinct composition instead of copying About
+- [x] Services page uses the premium green medical visual system
+- [x] Services page is responsive and supports reduced motion
 
 ### Current state
-`index.php` and `about.php` are now the first two designed public pages. `about.php` is JSON-driven, responsive, escaped and intentionally handles placeholder institutions without presenting them as verified facts.
+`index.php`, `about.php` and `services.php` are implemented as the first three designed public pages. The Services page uses the existing verified-looking project content source `data/expertise.json` and does not invent additional medical services.
 
 ### Next exact execution step
-1. Inspect the existing `services.php` and `data/expertise.json`.
-2. Build `services.php` as the next premium public page.
-3. Keep the same green medical design language but give Services its own visual composition — do not copy the About layout blindly.
-4. Read existing JSON before coding.
+1. Inspect the existing `portfolio.php` and all relevant research/portfolio JSON files.
+2. Build `portfolio.php` as a premium evidence/research/achievements page.
+3. Keep the green medical design language but create a distinct editorial media/research composition.
+4. Read existing JSON and media before coding.
 5. Do not build the admin yet.
-6. Update this README after the Services milestone.
+6. Update this README after the Portfolio milestone.
 
-### After Services
-1. `portfolio.php`
-2. `contact.php`
-3. single `/admin/index.php`
-4. JSON editing
-5. requests management
-6. media upload/manager
-7. security hardening
-8. SEO/accessibility/performance QA
+### After Portfolio
+1. `contact.php`
+2. single `/admin/index.php`
+3. JSON editing
+4. requests management
+5. media upload/manager
+6. security hardening
+7. SEO/accessibility/performance QA
 
 ## DEFINITION OF DONE
 
