@@ -1,11 +1,11 @@
 {
-  "intro":"Jalolov Jahongir Ibragimovichning asosiy neyroxirurgik yo‘nalishlari va jarrohlik amaliyotlari.",
+  "intro":"Jalolov Jahongir Ibragimovichning asosiy neyroxirurgik yo'nalishlari va jarrohlik amaliyotlari.",
   "items":[
-    {"category":"БОШ МИЯ","title":"Бош мия ўсмалари","description":"Bosh miya o‘smalari bo‘yicha neyroxirurgik diagnostika va jarrohlik amaliyotlari."},
-    {"category":"ОРҚА МИЯ","title":"Орқа мия ўсмалари","description":"Orqa miya va umurtqa kanali o‘smalari bo‘yicha neyroxirurgik davolash."},
-    {"category":"УМУРТҚА","title":"Диск чурраси (грыжа)","description":"Disk churrasi, nerv kompressiyasi va umurtqa patologiyalarida jarrohlik davolash."},
-    {"category":"ТРАВМАТОЛОГИЯ","title":"Умуртқа синиқлари","description":"Umurtqa pog‘onasi jarohatlari va sinishlarida neyroxirurgik yordam."},
-    {"category":"КРАНИО-ВЕРТЕБРАЛ","title":"Арнольд — Киари синдроми","description":"Arnold–Kiari malformatsiyasi bilan bog‘liq neyroxirurgik holatlarni baholash va davolash."},
-    {"category":"НЕЙРОХИРУРГИЯ","title":"Гидроцефалия","description":"Gidrosefaliya holatlarida bemor holatiga mos neyroxirurgik davolash taktikasi."}
+    {"category":"BOSH MIYA","title":"Bosh miya o'smalari","description":"Bosh miya o'smalari bo'yicha neyroxirurgik diagnostika va jarrohlik amaliyotlari."},
+    {"category":"ORQA MIYA","title":"Orqa miya o'smalari","description":"Orqa miya va umurtqa kanali o'smalari bo'yicha neyroxirurgik davolash."},
+    {"category":"UMURTQA","title":"Disk churrasi (grija)","description":"Disk churrasi, nerv kompressiyasi va umurtqa patologiyalarida jarrohlik davolash."},
+    {"category":"TRAVMATOLOGIYA","title":"Umurtqa siniqlari","description":"Umurtqa pog'onasi jarohatlari va sinishlarida neyroxirurgik yordam."},
+    {"category":"KRANIO-VERTEBRAL","title":"Arnold — Kiari sindromi","description":"Arnold–Kiari malformatsiyasi bilan bog'liq neyroxirurgik holatlarni baholash va davolash."},
+    {"category":"NEYROXIRURGIYA","title":"Gidrosefaliya","description":"Gidrosefaliya holatlarida bemor holatiga mos neyroxirurgik davolash taktikasi."}
   ]
 }
