@@ -1,19 +1,19 @@
 {
   "name":"Jalolov Jahongir Ibragimovich",
   "short_name":"Jahongir Jalolov",
-  "title":"Врач-нейрохирург",
-  "position":"Хаят Медикал клиникаси нейрохирургия бўлим бошлиғи ҳамда клиника бош шифокори",
-  "clinic":"Хаят Медикал",
-  "city":"Фарғона шаҳри",
-  "academic_degree":"Илмий даража йўқ",
-  "experience":"5 йиллик тажриба",
-  "bio":"Jalolov Jahongir Ibragimovich — врач-нейрохирург, Хаят Медикал клиникаси нейрохирургия бўлим бошлиғи ҳамда клиника бош шифокори. Нейрохирургияда 5 йиллик клиник тажрибага эга.",
-  "operations":["Бош мия ўсмалари","Орқа мия ўсмалари","Диск чурраси (грыжа)","Умуртқа синиқлари","Арнольд — Киари","Гидроцефалия"],
-  "experience_cities":["Москва, Россия","Новосибирск, Россия","Санкт-Петербург, Россия","Jena, Germany","Paris, France"],
+  "title":"Vrach-neyroxirurg",
+  "position":"Xayat Medikal klinikasi neyroxirurgiya bo'lim boshlig'i hamda klinika bosh shifokori",
+  "clinic":"Xayat Medikal",
+  "city":"Farg'ona shahri",
+  "academic_degree":"Ilmiy daraja yo'q",
+  "experience":"5 yillik tajriba",
+  "bio":"Jalolov Jahongir Ibragimovich — vrach-neyroxirurg, Xayat Medikal klinikasi neyroxirurgiya bo'lim boshlig'i hamda klinika bosh shifokori. Neyroxirurgiyada 5 yillik klinik tajribaga ega.",
+  "operations":["Bosh miya o'smalari","Orqa miya o'smalari","Disk churrasi (grijа)","Umurtqa siniqlari","Arnold — Kiari","Gidrosefaliya"],
+  "experience_cities":["Moskva, Rossiya","Novosibirsk, Rossiya","Sankt-Peterburg, Rossiya","Jena, Germaniya","Paris, Fransiya"],
   "stats":[
-    {"value":"5+","label":"йиллик тажриба"},
-    {"value":"200+","label":"бош мия жарроҳлик амалиётлари"},
-    {"value":"1000+","label":"орқа мия ва умуртқа операциялари"},
-    {"value":"5000+","label":"мамнун беморлар"}
+    {"value":"5+","label":"yillik tajriba"},
+    {"value":"200+","label":"bosh miya jarrohlik amaliyotlari"},
+    {"value":"1000+","label":"orqa miya va umurtqa operatsiyalari"},
+    {"value":"5000+","label":"mamnun bemorlar"}
   ]
 }

@@ -1,13 +1,13 @@
 {
   "headline":"Jalolov Jahongir Ibragimovich",
-  "bio":"Врач-нейрохирург. Хаят Медикал клиникаси нейрохирургия бўлим бошлиғи ҳамда клиника бош шифокори. 5 йиллик клиник тажрибага эга. Асосий фаолият йўналишлари — бош мия ва орқа мия жарроҳлиги, умуртқа патологиялари ҳамда нейрохирургик амалиётлар.",
-  "philosophy":"Ҳар бир бемор учун аниқ ташхис, индивидуал хирургик тактика ва хавфсиз даволаш устувор.",
+  "bio":"Vrach-neyroxirurg. Xayat Medikal klinikasi neyroxirurgiya bo'lim boshlig'i hamda klinika bosh shifokori. 5 yillik klinik tajribaga ega. Asosiy faoliyat yo'nalishlari — bosh miya va orqa miya jarrohligi, umurtqa patologiyalari hamda neyroxirurgik amaliyotlar.",
+  "philosophy":"Har bir bemor uchun aniq tashxis, individual xirurgik taktika va xavfsiz davolash ustuvor.",
   "education":[
-    {"period":"Россия Федерацияси","title":"Ординатура — нейрохирургия","institution":"НИИТО"},
-    {"period":"Новосибирск, Россия","title":"Нейрохирургия йўналиши","institution":"Федеральный центр нейрохирургии города Новосибирск"}
+    {"period":"Rossiya Federatsiyasi","title":"Ordinatura — neyroxirurgiya","institution":"NIITO"},
+    {"period":"Novosibirsk, Rossiya","title":"Neyroxirurgiya yo'nalishi","institution":"Federal tsentr neyroxirurgii goroda Novosibirsk"}
   ],
   "experience":[
-    {"period":"5 йиллик тажриба","position":"Врач-нейрохирург","place":"Хаят Медикал, Фарғона шаҳри","description":"Нейрохирургия бўлим бошлиғи ҳамда клиника бош шифокори."},
-    {"period":"Профессионал ривожланиш","position":"Нейрохирургия бўйича тажриба","place":"Москва, Россия · Новосибирск, Россия · Санкт-Петербург, Россия · Jena, Germany · Paris, France","description":"Нейрохирургия соҳасида малака ва амалий тажриба оширилган шаҳарлар."}
+    {"period":"5 yillik tajriba","position":"Vrach-neyroxirurg","place":"Xayat Medikal, Farg'ona shahri","description":"Neyroxirurgiya bo'lim boshlig'i hamda klinika bosh shifokori."},
+    {"period":"Professional rivojlanish","position":"Neyroxirurgiya bo'yicha tajriba","place":"Moskva, Rossiya · Novosibirsk, Rossiya · Sankt-Peterburg, Rossiya · Jena, Germaniya · Paris, Fransiya","description":"Neyroxirurgiya sohasida malaka va amaliy tajriba oshirilgan shaharlar."}
   ]
 }
