@@ -28,7 +28,7 @@ function media_card(array $item, int $index = 0): string {
     } else {
         $visual = '<img src="'.$src.'" alt="'.$title.' — Jahongir Neuro" loading="lazy" decoding="async">';
     }
-    return '<article class="media-card" data-category="'.$category.'"><div class="media-visual">'.$visual.'</div><div class="media-caption"><span>'.str_pad((string)($index + 1), 2, '0', STR_PAD_LEFT).' · '.$category.'</span><strong>'.$title.'</strong></div></article>';
+    return '<article class="media-card reveal-premium" data-category="'.$category.'"><div class="media-visual">'.$visual.'</div><div class="media-caption"><span>'.str_pad((string)($index + 1), 2, '0', STR_PAD_LEFT).' · '.$category.'</span><strong>'.$title.'</strong></div></article>';
 }
 
 function site_header(string $active, string $title = ''): void { ?>
@@ -41,9 +41,13 @@ function site_header(string $active, string $title = ''): void { ?>
 <meta name="description" content="Jahongir Neuro — premium professional neyroxirurg portfolio.">
 <title><?= page_title($title) ?></title>
 <link rel="stylesheet" href="/assets/css/app.css">
+<link rel="stylesheet" href="/assets/css/premium-glass.css">
 <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js" defer></script>
 </head>
 <body>
+<div class="premium-spotlight" aria-hidden="true"></div>
+<div class="premium-cursor-dot" aria-hidden="true"></div>
+<div class="premium-cursor-ring" aria-hidden="true"></div>
 <div class="site-noise" aria-hidden="true"></div>
 <header class="site-header">
   <a class="brand" href="/"><span>Jahongir</span><i>Neuro</i></a>
@@ -61,7 +65,12 @@ function site_footer(): void { ?>
 </footer>
 <script src="/assets/js/app.js" defer></script>
 <script>
-document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('[data-heic-src]').forEach(img=>{const convert=async()=>{try{if(typeof window.heic2any!=='function')throw new Error('converter unavailable');const res=await fetch(img.dataset.heicSrc,{credentials:'same-origin',cache:'force-cache'});if(!res.ok)throw new Error('HTTP '+res.status);const blob=await res.blob();const out=await window.heic2any({blob,type:'image/jpeg',quality:.88});img.src=URL.createObjectURL(Array.isArray(out)?out[0]:out);img.closest('.media-heic-wrap')?.classList.add('ready')}catch(e){img.closest('.media-heic-wrap')?.classList.add('failed')}};if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){io.unobserve(e.target);convert()}}),{rootMargin:'300px'});io.observe(img)}else convert()})});
+document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('[data-heic-src]').forEach(img=>{const convert=async()=>{try{if(typeof window.heic2any!=='function')throw new Error('converter unavailable');const res=await fetch(img.dataset.heicSrc,{credentials:'same-origin',cache:'force-cache'});if(!res.ok)throw new Error('HTTP '+res.status);const blob=await res.blob();const out=await window.heic2any({blob,type:'image/jpeg',quality:.88});img.src=URL.createObjectURL(Array.isArray(out)?out[0]:out);img.closest('.media-heic-wrap')?.classList.add('ready')}catch(e){img.closest('.media-heic-wrap')?.classList.add('failed')}};if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){io.unobserve(e.target);convert()}}),{rootMargin:'300px'});io.observe(img)}else convert()});
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const spotlight=document.querySelector('.premium-spotlight'),dot=document.querySelector('.premium-cursor-dot'),ring=document.querySelector('.premium-cursor-ring');
+if(!reduce && matchMedia('(pointer:fine)').matches){let rx=0,ry=0,tx=0,ty=0;window.addEventListener('mousemove',e=>{tx=e.clientX;ty=e.clientY;dot?.style.setProperty('left',tx+'px');dot?.style.setProperty('top',ty+'px');spotlight?.style.setProperty('left',tx+'px');spotlight?.style.setProperty('top',ty+'px')},{passive:true});const loop=()=>{rx+=(tx-rx)*.14;ry+=(ty-ry)*.14;ring?.style.setProperty('left',rx+'px');ring?.style.setProperty('top',ry+'px');requestAnimationFrame(loop)};loop();document.querySelectorAll('a,button,.glass-card,.media-card,.portrait').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('cursor-hover'));el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-hover'))})}
+if(!reduce && 'IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.reveal-premium').forEach(el=>io.observe(el))}else document.querySelectorAll('.reveal-premium').forEach(el=>el.classList.add('is-visible'));
+});
 </script>
 </body>
 </html>
