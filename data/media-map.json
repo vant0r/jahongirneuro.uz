@@ -1,0 +1,51 @@
+{
+  "source_format": "HEIC/JPG (original files preserved)",
+  "note": "HEIC files are intentionally kept in their original format. Do not convert or rename source uploads.",
+  "hero": ["uploads/photo_3_2026-08-16_08-05-32.jpg"],
+  "profile": ["uploads/photo_4_2026-08-16_08-05-32.jpg"],
+  "professional": [
+    "uploads/IMG_3802.HEIC",
+    "uploads/IMG_3801.HEIC",
+    "uploads/IMG_3800.HEIC",
+    "uploads/IMG_3794.HEIC",
+    "uploads/IMG_3813.HEIC",
+    "uploads/IMG_3814.HEIC"
+  ],
+  "clinical": [
+    "uploads/IMG_3803.HEIC",
+    "uploads/IMG_3805.HEIC",
+    "uploads/IMG_3807.HEIC",
+    "uploads/IMG_3530.HEIC",
+    "uploads/IMG_3529.HEIC",
+    "uploads/IMG_3528.HEIC",
+    "uploads/IMG_3524.HEIC",
+    "uploads/IMG_3520.HEIC",
+    "uploads/IMG_3521.HEIC",
+    "uploads/IMG_3518.HEIC",
+    "uploads/IMG_3519.HEIC",
+    "uploads/IMG_3517.HEIC"
+  ],
+  "surgery": [
+    "uploads/IMG_3686.HEIC",
+    "uploads/IMG_3687.HEIC",
+    "uploads/IMG_3688.HEIC",
+    "uploads/IMG_3680.HEIC",
+    "uploads/IMG_3675.HEIC",
+    "uploads/IMG_3648.HEIC",
+    "uploads/IMG_3642.HEIC",
+    "uploads/IMG_3636.HEIC",
+    "uploads/IMG_3312.HEIC",
+    "uploads/IMG_3305.HEIC",
+    "uploads/IMG_3293.HEIC",
+    "uploads/IMG_3280.HEIC",
+    "uploads/IMG_3198.HEIC",
+    "uploads/IMG_3199.HEIC",
+    "uploads/IMG_2805.HEIC"
+  ],
+  "consultation": [
+    "uploads/IMG_3773.HEIC",
+    "uploads/IMG_3770.HEIC",
+    "uploads/IMG_3536.HEIC"
+  ],
+  "video": ["uploads/IMG_3682.MOV"]
+}
