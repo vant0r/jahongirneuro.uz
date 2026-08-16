@@ -1,25 +1,8 @@
-```php
-# Compiled and build artifacts
-*.pyc
-__pycache__/
-*.o
-*.obj
-dist/
-build/
-*.class
-
-# Dependencies
-.venv/
-venv/
-node_modules/
-.julia/
-.zig-cache/
-
+```
 # Logs and temp files
 *.log
 *.tmp
 *.swp
-*.swo
 
 # Environment
 .env
@@ -29,38 +12,38 @@ node_modules/
 # Editors
 .vscode/
 .idea/
-*.swp
-*.swo
+
+# Dependencies
+node_modules/
+.venv/
+venv/
+__pycache__/
+.mypy_cache/
+.pytest_cache/
+dist/
+build/
+target/
+.gradle/
+
+# Compiled files
+*.pyc
+*.class
+*.o
+*.exe
+*.dll
+*.so
+*.a
+*.obj
+*.out
 
 # System files
 .DS_Store
 Thumbs.db
 
-# Coverage reports
+# Coverage
 coverage/
 htmlcov/
 .coverage
-
-# Package managers
-.npm/
-.yarn/
-.pnpm-store/
-.bower-cache/
-.bower-registry/
-.bower-tmp/
-
-# Build systems
-target/
-.gradle/
-.cargo/
-.go/
-
-# Testing
-.mypy_cache/
-.pytest_cache/
-.nyc_output/
-istanbul/
-.reports/
 
 # Compressed files
 *.zip
