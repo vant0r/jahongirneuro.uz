@@ -133,7 +133,7 @@ This README is persistent development memory. After every meaningful milestone, 
 
 # CURRENT DEVELOPMENT STATUS
 
-**Phase:** 03 — Public Pages Implementation
+**Phase:** 04 — Admin Panel Implementation
 
 ### Completed
 - [x] 5 public-page architecture defined
@@ -148,38 +148,37 @@ This README is persistent development memory. After every meaningful milestone, 
 - [x] responsive homepage implemented
 - [x] reduced-motion support implemented
 - [x] public navigation paths corrected
-- [x] `about.php` implemented as premium editorial About page
-- [x] About page reads existing doctor/about JSON data
-- [x] `services.php` implemented as premium editorial expertise/services page
-- [x] Services page reads existing expertise JSON data
-- [x] `portfolio.php` implemented as premium evidence/research/achievements page
-- [x] Portfolio page supports flexible existing JSON shapes without inventing professional facts
-- [x] Portfolio page uses distinct editorial/media composition
-- [x] Portfolio page uses premium green medical visual system
-- [x] Portfolio page is responsive and supports reduced motion
+- [x] `about.php` implemented
+- [x] `services.php` implemented
+- [x] `portfolio.php` implemented
+- [x] `contact.php` implemented as premium contact/appointment page
+- [x] contact form server-side validation implemented
+- [x] contact requests stored in `data/requests.json` with `LOCK_EX`
+- [x] request status initialized as `new`
+- [x] sensitive medical information warning included in public form
 
 ### Current state
-`index.php`, `about.php`, `services.php` and `portfolio.php` are implemented as the first four designed public pages. `portfolio.php` safely reads `data/portfolio.json` when present and displays an explicit empty state when portfolio data has not yet been entered.
+All five public pages now exist and follow the premium green medical personal-brand direction. The contact form writes validated requests to JSON. `data/requests.json` now exists as an empty request store.
 
 ### Next exact execution step
-1. Inspect the existing `contact.php`, relevant site/contact JSON and any current form implementation.
-2. Build `contact.php` as a premium contact + appointment-request page.
-3. Implement secure server-side request validation and JSON storage in `data/requests.json` without collecting unnecessary sensitive medical information.
-4. Keep the premium green medical visual system but make the contact page conversion-focused and distinct from the other pages.
-5. Do not build the admin yet.
-6. Update this README after the Contact milestone.
+1. Build the SINGLE `/admin/index.php` panel.
+2. Add secure PHP session authentication using server configuration such as `ADMIN_PASSWORD`; never commit production credentials.
+3. Build internal dashboard, Site/Doctor, About, Services, Portfolio, Requests, Media and Settings sections in that ONE file.
+4. Implement JSON CRUD carefully with validation and `LOCK_EX` writes.
+5. Implement request list/detail/status management.
+6. Implement secure image/video media upload, preview, replace and delete.
+7. Do not create any additional admin PHP pages.
+8. After the admin milestone, update this README again.
 
-### After Contact
-1. single `/admin/index.php`
-2. JSON editors
-3. requests management
-4. media upload/manager
-5. authentication/security hardening
-6. SEO/accessibility/performance QA
+### After Admin
+1. security hardening
+2. media execution protection
+3. SEO/accessibility/performance QA
+4. complete repository audit
 
 ## DEFINITION OF DONE
 
-A milestone is complete only when intended code exists, PHP syntax is valid, the page renders, responsive behavior is considered, JSON reads correctly, existing functionality is preserved, no obvious PHP/JS errors remain, media paths work, security requirements are respected, design matches this README, README status is updated and the next exact step is documented.
+A milestone is complete only when intended code exists, PHP syntax is valid, the page renders, responsive behavior is considered, JSON reads/writes correctly, existing functionality is preserved, no obvious PHP/JS errors remain, media paths work, security requirements are respected, design matches this README, README status is updated and the next exact step is documented.
 
 The whole project is complete only when all 5 public pages, the **single admin panel**, JSON editing, requests, media management and final QA are complete.
 
