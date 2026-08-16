@@ -8,15 +8,11 @@
 
 Visitor journey: **Who is the doctor? → What is the expertise? → What proves the expertise? → How can I contact/request an appointment?**
 
-The site communicates professional identity, medical expertise, education, experience, research, publications, certificates, achievements, trust and a clear contact action.
-
 Never invent medical credentials, publications, awards, patient numbers, outcomes or other professional claims.
 
 ## TECHNOLOGY — NON-NEGOTIABLE
 
-Use only PHP 8.x, HTML5, CSS3, Vanilla JavaScript, JSON and Apache.
-
-Do NOT use React, Next.js, Vue, Angular, Node.js/npm build systems, Tailwind, Bootstrap, Laravel, WordPress, PHP frameworks, MySQL/database for content or unnecessary third-party UI libraries.
+Use only PHP 8.x, HTML5, CSS3, Vanilla JavaScript, JSON and Apache. No React, Vue, Angular, Node/npm build systems, Tailwind, Bootstrap, Laravel, WordPress, PHP frameworks or MySQL for content.
 
 ## FINAL STRUCTURE
 
@@ -41,68 +37,53 @@ jahongirneuro.uz/
 └── README.md
 ```
 
-### CRITICAL ARCHITECTURE RULE
-
-There is **ONE and ONLY ONE admin panel**: `/admin/index.php`. Do NOT create separate admin pages. All management functions are internal sections/tabs/views of the single admin page.
+**ONE and ONLY ONE admin panel:** `/admin/index.php`. Never create additional admin PHP pages.
 
 ## PUBLIC PAGES
 
-### `/index.php` — HOME
-First impression, identity, trust and conversion. Minimal navigation, doctor hero/identity, positioning statement, verified statistics, expertise preview, biography preview, selected research/achievements/media, credibility/trust, appointment CTA and footer. Never put important text over the doctor's face.
+- `/index.php` — identity, hero, trust, expertise preview, biography preview, selected evidence, media, CTA.
+- `/about.php` — biography, education, career, philosophy, memberships and verified achievements.
+- `/services.php` — verified expertise, professional activities and services.
+- `/portfolio.php` — research, publications, conferences, certificates, awards and professional media.
+- `/contact.php` — contact details, appointment/contact form and safe request submission.
 
-### `/about.php` — ABOUT
-Biography, education, career timeline, current/previous positions, professional philosophy, languages, memberships and verified achievements.
-
-### `/services.php` — EXPERTISE / SERVICES
-Specialties, areas of expertise, professional activities, verified procedures/services, relevant certifications and concise explanations. Never invent services.
-
-### `/portfolio.php` — PORTFOLIO / RESEARCH / ACHIEVEMENTS
-Research, publications, scientific projects, conferences, presentations, certificates, awards, achievements and verified professional media.
-
-### `/contact.php` — CONTACT / APPOINTMENT
-Phone, email, address, working hours, verified social/contact channels, appointment/contact form, map/location and CTA. Do not request unnecessary sensitive medical information.
+Never invent medical or professional facts.
 
 ## SINGLE ADMIN PANEL — `/admin/index.php`
 
-Internal sections: Dashboard, Site / Doctor, About, Services, Portfolio, Requests, Media, Settings. These are sections inside one file, never separate admin pages.
+Sections inside the same file: Dashboard, Site / Doctor, About, Services, Portfolio, Requests, Media, Settings.
 
-### Dashboard
-Show total requests, unread/new requests, total media, published services, portfolio count, latest requests, latest media and basic site status.
+### Implemented in current admin milestone
+- PHP session login using `ADMIN_PASSWORD` environment configuration.
+- Dashboard metrics for requests, new requests, services and portfolio.
+- Site/Doctor basic JSON editor.
+- About basic JSON editor.
+- Services intro editor.
+- Portfolio intro editor.
+- Requests list, status update and delete.
+- Media image/video upload with server-side MIME and size validation.
+- Image/video preview and filename listing.
+- Settings explanation for environment-based admin password.
 
-### Site / Doctor
-Manage global doctor identity, hero/profile media, contacts, verified social links and SEO settings.
+### Still required before admin milestone is complete
+- CSRF protection on all state-changing admin forms.
+- Full CRUD for Services items: create/edit/delete, publish/unpublish, order, category, title, description and image.
+- Full CRUD for Portfolio items: create/edit/delete, publish/unpublish, order, category, title, description, year/date, source/link, cover image, gallery and video.
+- Full About editor for education, experience, timeline, positions, philosophy, languages, memberships and achievements.
+- Site editor for hero/profile media, social links and SEO settings.
+- Media replace/delete and alt-text management.
+- Media assignment to hero/background/portfolio content.
+- Stronger authentication configuration and production hardening.
 
-### About
-Manage biography, education, experience, career timeline, positions, philosophy, languages, memberships and achievements.
+## JSON / SECURITY RULES
 
-### Services
-Manage `data/services.json`: create/edit/delete, publish/unpublish, order, title, description, category and image.
+All editable content is JSON-driven. Use valid UTF-8, preserve unrelated records, validate before writes, use `LOCK_EX`, handle missing/invalid data and escape output.
 
-### Portfolio
-Manage `data/portfolio.json`: create/edit/delete, publish/unpublish, order, title, description, category, date/year, source/link, cover image, gallery media and video.
-
-### Requests — CORE REQUIREMENT
-All public contact/appointment submissions are stored in `data/requests.json`. Fields: unique ID, name, phone, email if collected, message/reason, created date/time and status. Statuses: `new`, `read`, `contacted`, `completed`, `archived`. Admin actions: open, mark read, mark contacted, mark completed, archive and delete. Unread requests must be clearly visible on the dashboard. Never collect/store unnecessary sensitive medical information.
-
-### Media — CORE REQUIREMENT
-One central media manager inside `/admin/index.php`. It must support image/video upload, preview, replace, delete, filename/type display, image alt text and selecting media for hero/background/portfolio/etc. Storage: `media/images/` and `media/videos/`.
-
-### Settings
-Settings remain inside the same admin panel.
-
-## JSON ARCHITECTURE
-
-All editable public content is JSON-driven. Use valid UTF-8, predictable fields, preserve unrelated records, validate before writes, use file locking where appropriate, handle missing/invalid data gracefully and escape rendered output.
-
-## SECURITY
-
-Uploads require server-side validation of extension, actual MIME type, size, filename and destination. Use generated safe filenames. Prevent path traversal and script execution in media directories. Protect `/admin/index.php` with PHP session authentication. Production credentials must not be stored in JSON or committed to GitHub; use server configuration such as `ADMIN_PASSWORD`. Public forms require server-side validation, CSRF protection, output escaping, safe JSON writing, graceful errors and basic abuse/rate protection where practical.
+Uploads must validate actual MIME, extension, size and generated filename; prevent path traversal and script execution in media directories. Never commit production credentials. Public forms need validation, CSRF protection, output escaping, safe JSON writes and basic abuse protection where practical.
 
 ## DESIGN DIRECTION
 
-**Apple-inspired premium minimalism + modern medical personal brand.** The site must feel bright, expensive, calm, precise, human and trustworthy.
-
-Visual rules: open white/light-gray canvas, **premium green as primary accent**, strong editorial typography, generous whitespace, precise alignment, layered depth, restrained glass, refined borders, soft shadows, subtle micro-interactions and smooth lightweight motion.
+**Apple-inspired premium minimalism + modern medical personal brand.** Bright white/light-gray canvas, **premium green accent**, strong editorial typography, generous whitespace, layered depth, restrained glass, precise borders, soft shadows and subtle micro-interactions.
 
 ```css
 --medical-accent:#0F5C4D;
@@ -111,97 +92,58 @@ Visual rules: open white/light-gray canvas, **premium green as primary accent**,
 --accent-pale:#EEF5F1;
 ```
 
-Green must feel medical, premium and natural — never neon/cyberpunk. Do not turn every section into a rounded card. Avoid excessive gradients, visual clutter, template layouts and noisy animation. Support `prefers-reduced-motion`.
+Green must feel medical, premium and natural — never neon/cyberpunk. Avoid card overload, excessive gradients, clutter and noisy animation. Support `prefers-reduced-motion`.
 
-## RESPONSIVE / MEDICAL SAFETY / QUALITY
+## AI AGENT EXECUTION PROTOCOL
 
-Desktop, tablet and mobile must be intentionally composed. Use semantic HTML, keyboard navigation, visible focus, labels, sufficient contrast, meaningful alt text, unique metadata and optimized/lazy-loaded media.
+Before coding: **read README completely → inspect repository → inspect relevant files/JSON/media → identify exact status → plan → implement → verify → update README → commit.**
 
-Never fabricate degrees, titles, experience, publications, awards, certificates, patient statistics, outcomes, testimonials or medical claims. Use verified information or explicit development placeholders.
+Never blindly rewrite working code, create duplicate admin pages, introduce forbidden technologies, hard-code editable content, invent facts or claim verification without actually checking.
 
-## AI AGENT EXECUTION PROTOCOL — MANDATORY
-
-Before writing code: (1) read this README completely, (2) read `CURRENT DEVELOPMENT STATUS`, (3) inspect actual repository tree, (4) inspect every relevant existing file, JSON and media asset, (5) determine what is already complete, (6) continue from the exact documented next step.
-
-Workflow: **Inspect → Plan → Implement → Verify → Update README → Commit.**
-
-Never blindly rewrite the repository, delete working functionality without reason, create duplicate admin pages, introduce frameworks/database, hard-code editable content, invent medical information or claim completion without verification.
-
-## README CONTINUATION PROTOCOL — MANDATORY
-
-This README is persistent development memory. After every meaningful milestone, replace the old `CURRENT DEVELOPMENT STATUS` with the current truth. Do not append contradictory old status. Record completed work, files changed, current phase, remaining work, exact next action, known issues and last commit.
+README is persistent development memory. After every milestone replace `CURRENT DEVELOPMENT STATUS` with the current truth, including completed files, current phase, remaining work, exact next action, known issues and commit.
 
 # CURRENT DEVELOPMENT STATUS
 
-**Phase:** 04 — Admin Panel Implementation
+**Phase:** 04 — Admin Panel Implementation / Refinement
 
 ### Completed
-- [x] 5 public-page architecture defined
-- [x] single `/admin/index.php` architecture defined
-- [x] request management defined
-- [x] central media management defined
-- [x] JSON content architecture defined
-- [x] PHP + HTML + CSS + Vanilla JS + JSON + Apache confirmed
-- [x] premium light medical design direction defined
-- [x] premium green accent direction defined and applied
-- [x] homepage implemented
-- [x] responsive homepage implemented
-- [x] reduced-motion support implemented
-- [x] public navigation paths corrected
-- [x] `about.php` implemented
-- [x] `services.php` implemented
-- [x] `portfolio.php` implemented
-- [x] `contact.php` implemented as premium contact/appointment page
-- [x] contact form server-side validation implemented
-- [x] contact requests stored in `data/requests.json` with `LOCK_EX`
-- [x] request status initialized as `new`
-- [x] sensitive medical information warning included in public form
+- [x] Public architecture and 5 public PHP pages
+- [x] Premium green medical design direction
+- [x] `index.php`
+- [x] `about.php`
+- [x] `services.php`
+- [x] `portfolio.php`
+- [x] `contact.php`
+- [x] `data/requests.json`
+- [x] Single `/admin/index.php` created
+- [x] Session authentication foundation
+- [x] Dashboard metrics
+- [x] Basic Site/About/Services/Portfolio editors
+- [x] Requests status/delete management
+- [x] Image/video upload with MIME and size validation
+- [x] Media previews
 
 ### Current state
-All five public pages now exist and follow the premium green medical personal-brand direction. The contact form writes validated requests to JSON. `data/requests.json` now exists as an empty request store.
+The single admin panel exists and is functional at a foundation level. It must now be hardened and expanded into the full JSON/media CMS described above. Do not create additional admin pages.
 
 ### Next exact execution step
-1. Build the SINGLE `/admin/index.php` panel.
-2. Add secure PHP session authentication using server configuration such as `ADMIN_PASSWORD`; never commit production credentials.
-3. Build internal dashboard, Site/Doctor, About, Services, Portfolio, Requests, Media and Settings sections in that ONE file.
-4. Implement JSON CRUD carefully with validation and `LOCK_EX` writes.
-5. Implement request list/detail/status management.
-6. Implement secure image/video media upload, preview, replace and delete.
-7. Do not create any additional admin PHP pages.
-8. After the admin milestone, update this README again.
+1. Add CSRF tokens and validation to every state-changing admin action.
+2. Complete **full Services item CRUD** inside `/admin/index.php`.
+3. Complete **full Portfolio item CRUD** inside `/admin/index.php`.
+4. Expand About and Site editors to all JSON-controlled fields.
+5. Add media delete/replace, alt text and media assignment.
+6. Verify PHP syntax and JSON integrity after each change.
+7. Update README with the exact resulting state and next action.
 
-### After Admin
-1. security hardening
-2. media execution protection
+### After Admin Refinement
+1. authentication/security hardening
+2. media-directory execution protection
 3. SEO/accessibility/performance QA
 4. complete repository audit
 
 ## DEFINITION OF DONE
 
-A milestone is complete only when intended code exists, PHP syntax is valid, the page renders, responsive behavior is considered, JSON reads/writes correctly, existing functionality is preserved, no obvious PHP/JS errors remain, media paths work, security requirements are respected, design matches this README, README status is updated and the next exact step is documented.
-
-The whole project is complete only when all 5 public pages, the **single admin panel**, JSON editing, requests, media management and final QA are complete.
-
-## END-OF-SESSION REPORT
-
-```text
-DONE
-
-Completed:
-- ...
-
-Files changed:
-- ...
-
-Current phase:
-- ...
-
-Next exact step:
-- ...
-
-Known issues:
-- None / ...
-```
+Complete means: all 5 public pages, one admin panel, secure JSON editing, complete request management, secure media management, responsive design, accessibility, SEO, security and final repository QA are verified.
 
 ## FINAL PRINCIPLE
 
