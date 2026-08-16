@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Interactive Clean Design</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f6f8;
+            color: #1a1a1a;
+            overflow-x: hidden;
+        }
+
+        /* 3D Canvas Container */
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        main {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding-left: 5%;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: #111;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #555;
+            max-width: 500px;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 48px;
+            background: #111;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+
+        .section {
+            min-height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 0;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            padding: 60px;
+            border-radius: 32px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            max-width: 700px;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card.left { margin-right: auto; margin-left: 5%; }
+        .card.right { margin-left: auto; margin-right: 5%; }
+
+        .card h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #111;
+        }
+
+        .card p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #444;
+            margin-bottom: 16px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 30px;
+        }
+
+        .feature-box {
+            background: #fff;
+            padding: 24px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .feature-box h3 { font-size: 1.1rem; margin-bottom: 8px; }
+        .feature-box p { font-size: 0.9rem; color: #666; margin: 0; }
+
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .card { padding: 32px; margin: 0 5% !important; }
+            .features { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="canvas-container"></div>
+
+    <main>
+        <section class="hero">
+            <h1>Yangi<br>Dizayn Tajribasi</h1>
+            <p>Orqa fonda jonli 3D olam, oldinda esa tiniq va o'qishga qulay interfeys. Minimalizm va texnologiyaning uyg'unligi.</p>
+            <a href="#" class="btn">Boshlash</a>
+        </section>
+
+        <section class="section">
+            <div class="card left scroll-reveal">
+                <h2>Toza va Aniq</h2>
+                <p>Bizning yondashuvimiz – ortiqcha shovqinsizlik. Foydalanuvchi e'tiborini faqat muhim ma'lumotga qaratish uchun oq rang va yumshoq soyalar ishlatildi.</p>
+                <div class="features">
+                    <div class="feature-box">
+                        <h3>Tezlik</h3>
+                        <p>Maksimal optimizatsiya</p>
+                    </div>
+                    <div class="feature-box">
+                        <h3>Qulaylik</h3>
+                        <p>Ko'zga yoqimli UI</p>
+                    </div>
+                    <div class="feature-box">
+                        <h3>Moslashuv</h3>
+                        <p>Barcha ekranlar uchun</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="card right scroll-reveal">
+                <h2>3D Integratsiya</h2>
+                <p>Orqa fondagi geometrik shakl nafaqat bezak, u saytingizning ruhi. U scroll qilishingizga qarab aylanadi va harakatlanadi.</p>
+                <p>Bu texnologiya foydalanuvchiga sayrga chiqqandek his tuyg'usini beradi va saytni yodda qolarli qiladi.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="card left scroll-reveal">
+                <h2>Bog'lanish</h2>
+                <p>Loyihangizni yangi bosqichga olib chiqishga tayyormisiz? Keling, birgalikda ajoyib narsa yaratamiz.</p>
+                <a href="#" class="btn" style="margin-top: 20px;">Xabar yuborish</a>
+            </div>
+        </section>
+
+        <footer>
+            &copy; 2024 Yangi Dizayn Konseptsiyasi. Barcha huquqlar himoyalangan.
+        </footer>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // 3D Scene Setup
+        const container = document.getElementById('canvas-container');
+        const scene = new THREE.Scene();
+        scene.fog = new THREE.FogExp2(0xf4f6f8, 0.002);
+
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.z = 5;
+
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        container.appendChild(renderer.domElement);
+
+        // Geometry - Asosiy dumaloq shakl (Icosahedron)
+        const geometry = new THREE.IcosahedronGeometry(2.5, 1);
+        const material = new THREE.MeshNormalMaterial({ 
+            wireframe: false,
+            flatShading: true
+        });
+        
+        // Ikkinchi qatlam - Wireframe (to'r ko'rinishi)
+        const wireGeo = new THREE.IcosahedronGeometry(2.6, 1);
+        const wireMat = new THREE.MeshBasicMaterial({ 
+            color: 0x888888, 
+            wireframe: true, 
+            transparent: true, 
+            opacity: 0.15 
+        });
+
+        const sphere = new THREE.Mesh(geometry, material);
+        const wireSphere = new THREE.Mesh(wireGeo, wireMat);
+        
+        // Guruhga birlashtiramiz
+        const group = new THREE.Group();
+        group.add(sphere);
+        group.add(wireSphere);
+        
+        // Sahnaning o'ng tomoniga suramiz
+        group.position.x = 2;
+        scene.add(group);
+
+        // Yoritish
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+        scene.add(ambientLight);
+
+        const pointLight = new THREE.PointLight(0xffffff, 0.8);
+        pointLight.position.set(5, 5, 5);
+        scene.add(pointLight);
+
+        // Scroll animatsiyasi uchun o'zgaruvchilar
+        let scrollY = 0;
+        let targetRotationX = 0;
+        let targetRotationY = 0;
+
+        window.addEventListener('scroll', () => {
+            scrollY = window.scrollY;
+            // Scroll qilganda obyektni burish va siljitish
+            targetRotationY = scrollY * 0.002;
+            targetRotationX = scrollY * 0.001;
+            
+            // Obyekt scrollga qarab chapga-o'ngga yursin
+            const moveX = Math.sin(scrollY * 0.002) * 1.5;
+            group.position.x = 2 + moveX;
+        });
+
+        // Card reveal animatsiyasi
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.scroll-reveal').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Resize handler
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            
+            // Mobil qurilmalarda obyektni markazga yaqinlashtirish
+            if (window.innerWidth < 768) {
+                group.position.x = 0;
+                group.position.y = -1;
+            } else {
+                group.position.x = 2;
+                group.position.y = 0;
+            }
+        });
+
+        // Initial mobile check
+        if (window.innerWidth < 768) {
+            group.position.x = 0;
+            group.position.y = -1;
+        }
+
+        // Animation Loop
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // Doimiy aylantirish (sekin)
+            sphere.rotation.y += 0.002;
+            sphere.rotation.x += 0.001;
+            wireSphere.rotation.y -= 0.001; // Qarama-qarshi yo'nalishda
+
+            // Scroll ta'siri (smooth interpolation)
+            group.rotation.y += (targetRotationY - group.rotation.y) * 0.05;
+            group.rotation.x += (targetRotationX - group.rotation.x) * 0.05;
+
+            renderer.render(scene, camera);
+        }
+
+        animate();
+    </script>
+</body>
+</html>
