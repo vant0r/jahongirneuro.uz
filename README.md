@@ -6,7 +6,7 @@
 ## TEXNOLOGIYA — QAT’IY
 Faqat PHP 8.x + HTML5 + CSS3 + Vanilla JS + JSON + Apache. React/Vue/Angular/Node/npm/Tailwind/Bootstrap/Laravel/WordPress/MySQL yo‘q.
 
-## STRUKTURA
+## YANGI STRUKTURA
 ```text
 jahongirneuro.uz/
 ├── index.php
@@ -14,6 +14,12 @@ jahongirneuro.uz/
 ├── services.php
 ├── portfolio.php
 ├── contact.php
+├── includes/
+│   ├── app.php
+│   └── components.php
+├── assets/
+│   ├── css/app.css
+│   └── js/app.js
 ├── admin/index.php
 ├── data/
 │   ├── site.json
@@ -28,113 +34,60 @@ jahongirneuro.uz/
 ├── media/images/
 ├── media/videos/
 ├── uploads/
-│   └── original professional media archive
 └── README.md
 ```
 
 ## DIZAYN
-Apple-inspired premium minimalism + modern medical personal brand. Yorqin oq/kulrang canvas, premium yashil accent `#0F5C4D`, `#174F45`, `#E3EEEA`; kuchli typography, whitespace, layered depth, restrained glass, no neon/cyberpunk, no visual clutter.
+Apple-inspired premium medical personal brand. Yorqin white/soft-gray canvas, `#0F5C4D`, `#174F45`, `#E3EEEA`; kuchli typography, whitespace, layered depth, restrained glass, cinematic portrait, subtle motion va premium interaction. Neon/cyberpunk, ortiqcha gradient, visual clutter va template ko‘rinishi taqiqlanadi.
 
-## RESPONSIVE — QAT’IY STANDART
-Barcha public sahifalar va `/admin/index.php` desktop, laptop, tablet va mobile uchun alohida kompozitsiya sifatida ishlashi shart.
+## ARXITEKTURA
+Public sahifalar umumiy `includes/app.php` va `includes/components.php` orqali JSON ma’lumotlarini oladi. Barcha public sahifalar bitta `assets/css/app.css` design system va bitta `assets/js/app.js` interaction qatlamidan foydalanadi. Takroriy page-specific CSS/JS yozilmaydi.
 
-- Mobile-first breakpoints: <=980px, <=700px, <=560px va <=380px zarur joylarda.
-- Horizontal overflow, kesilgan matn, ekran tashqarisiga chiqadigan tugma/form/card bo‘lmasin.
-- `100vw` sababli gorizontal scrollbar paydo qilinmasin.
-- Nav mobileda ixcham bo‘lsin; desktop linklar kerak bo‘lsa yashirilib CTA saqlansin.
-- Gridlar 3/2 ustundan 1 ustunga to‘g‘ri collapse bo‘lsin.
-- Formlar mobileda bir ustun bo‘lsin; input/button qulay touch targetga ega bo‘lsin.
-- Typography `clamp()`/fluid sizing bilan ekran kengligidan oshmasin.
-- Media va rasmlar `max-width:100%`, video overflow qilmasin; portrait/hero crop buzilmasin.
-- Admin jadvallari kichik ekranda horizontal scroll qilinadigan konteynerda bo‘lsin.
-- Sticky/fixed elementlar safe-area va mobile viewportni hisobga olsin.
-- Hover mobilga bog‘liq interaction bo‘lmasin.
-- `prefers-reduced-motion:reduce` qo‘llansin.
-- 320–380px kengliklarda ham layout buzilmasligi tekshirilsin.
+## RESPONSIVE — QAT’IY
+Desktop, laptop, tablet va mobile alohida kompozitsiya sifatida ishlashi shart. 320–380px ham tekshiriladi. Horizontal overflow bo‘lmasin. Gridlar to‘g‘ri collapse bo‘lsin. Formlar mobileda bir ustun. Sticky/fixed elementlar safe-area bilan mos. Hover mobilga bog‘liq bo‘lmasin. `prefers-reduced-motion:reduce` qo‘llansin.
 
 ## ADMIN — `/admin/index.php`
-Bitta PHP fayl ichida Dashboard, Site/Doktor, About, Services, Portfolio, So‘rovlar, Media va Settings mavjud.
+Bitta PHP fayl ichida Dashboard, Site/Doktor, About, Services, Portfolio, So‘rovlar, Media va Settings mavjud. Authentication `ADMIN_PASSWORD` environment variable orqali ishlaydi. CSRF, session regeneration, JSON `LOCK_EX`, output escaping, MIME/size validation va path traversal himoyasi saqlanadi.
 
-### HOZIR TAYYOR
-- [x] Session authentication: server `ADMIN_PASSWORD` environment variable.
-- [x] Session regeneration.
-- [x] CSRF token — state-changing POST actionlarda.
-- [x] JSON read/write + `LOCK_EX`.
-- [x] Dashboard metrics.
-- [x] Site/Doktor editor.
-- [x] About editor.
-- [x] Services CRUD.
-- [x] Portfolio CRUD.
-- [x] Requests workflow.
-- [x] Media upload/delete/metadata.
-- [x] Output escaping.
-- [x] Path traversal uchun `basename()` media delete.
-
-## REAL MEDIA INTEGRATION
-- [x] Repositorydagi original HEIC fayllar o‘zgartirilmaydi.
-- [x] Original MOV video o‘zgartirilmaydi.
-- [x] Mavjud real media `data/media.json` orqali markaziy manifestga kiritildi.
-- [x] `portfolio.php` barcha real media fayllarni birgalikda ko‘rsatadigan responsive masonry archivega aylantirildi.
-- [x] Media kategoriyalari: portrait, surgery, clinical, consultation, international, professional.
-- [x] HEIC preview ishlamaydigan browserlar uchun original faylga fallback link mavjud.
-- [x] MOV uchun native HTML5 video player mavjud.
-- [x] Lazy loading va responsive media sizing qo‘llangan.
-- [x] Barcha real media uchun original faylni yangi tabda ochish imkoniyati mavjud.
-- [x] Media soni: 42 ta manifest elementi.
-
-## MEDIA QOIDALARI
-Images max 10MB; videos max 50MB. Actual MIME server-side `finfo` bilan tekshiriladi. Yangi upload fayl nomi random generated. Yangi admin upload media `media/images/` yoki `media/videos/` ichida saqlanadi. Repositorydagi original `uploads/` archive o‘zgartirilmaydi.
-
-## SECURITY
-Productionda `ADMIN_PASSWORD` environment variable majburiy. Default/demo password ishlatilmasin. JSON write `LOCK_EX`, output `htmlspecialchars`, CSRF token, MIME/size validation va generated filenames ishlatiladi. Media papkalarida PHP script execution hosting konfiguratsiyasi orqali bloklanishi kerak.
+## REAL MEDIA
+Original `uploads/` fayllari o‘zgartirilmaydi. `data/media.json` markaziy media manifest hisoblanadi. Portfolio barcha manifest media elementlarini category filter bilan ko‘rsatadi. Original fayllarga to‘g‘ridan-to‘g‘ri access saqlanadi.
 
 ## AI AGENT PROTOKOLI
-README'ni to‘liq o‘qi → repositoryni tekshir → mavjud kod/JSON/media ni o‘qi → statusni tekshir → faqat qolgan ishni bajar → syntax/logicni tekshir → README statusini **eski statusni o‘chirib yangilab** yoz → commit qil. Tayyor bo‘lmagan narsani `[x]` qilma. Ishlayotgan kodni sababsiz qayta yozma. Yangi admin PHP sahifa yaratma.
+README'ni to‘liq o‘qi → repositoryni tekshir → mavjud JSON/media/admin logikasini o‘qi → tayyor ishlayotgan backendni sababsiz buzma → dizayn va arxitekturani umumiy system orqali boshqar → syntax/logicni tekshir → README statusini fakt asosida yangila → commit qil.
 
 # CURRENT DEVELOPMENT STATUS
 
-**Phase:** 06 — Real Media Integration Complete / Final QA
+**Phase:** 07 — Full Public UI Rebuild / Premium Medical Design
 
-### Public
-- [x] `index.php`
-- [x] `about.php`
-- [x] `services.php`
-- [x] `portfolio.php`
-- [x] `contact.php`
-- [x] Portfolio real media archive integration
-- [x] HEIC original-file fallback
-- [x] MOV native video integration
+### PUBLIC
+- [x] `index.php` — yangi editorial hero + portrait + stats + expertise + evidence + contact CTA
+- [x] `about.php` — identity, philosophy, experience, education
+- [x] `services.php` — expertise cards va clinical philosophy
+- [x] `portfolio.php` — real media archive + filters
+- [x] `contact.php` — secure JSON request flow
+- [x] Shared public components
+- [x] Shared responsive design system
+- [x] Shared mobile navigation
 
 ### CMS
-- [x] Single admin panel
+- [x] Single `/admin/index.php`
 - [x] Authentication foundation
 - [x] CSRF
-- [x] Site editor
-- [x] About editor
-- [x] Services CRUD
-- [x] Portfolio CRUD
-- [x] Requests management
-- [x] Media upload/delete/metadata
-
-### MEDIA
-- [x] 42 real media records mapped in `data/media.json`
-- [x] Original HEIC/JPG/MOV files preserved in `uploads/`
-- [x] Portfolio masonry gallery
-- [x] Category filters
-- [x] Lazy loading
-- [x] Original-file fallback/open action
+- [x] JSON CRUD foundation
+- [x] Requests workflow
+- [x] Media upload/delete foundation
 
 ### NEXT EXACT EXECUTION ORDER
-1. Run PHP syntax audit on every PHP entry point.
-2. Run JSON integrity audit on every `data/*.json`.
-3. Verify that all 42 paths in `data/media.json` physically exist in the repository.
-4. Verify real media rendering on the target hosting; HEIC fallback must remain functional where HEIC preview is unsupported.
-5. Verify admin media upload/delete and `enctype` behavior.
-6. Verify all public pages consume admin-edited JSON fields correctly.
-7. Perform responsive QA at 320/360/390/430/768/1024/1440px.
+1. PHP syntax audit — barcha public va admin PHP entry pointlar.
+2. JSON integrity audit — barcha `data/*.json`.
+3. `data/media.json` yo‘llarini repositorydagi real fayllar bilan solishtirish.
+4. Target hostingda public rendering tekshiruvi.
+5. Admin upload/delete va `enctype` tekshiruvi.
+6. Admin orqali o‘zgartirilgan JSON fieldlar public sahifalarda aks etishini tekshirish.
+7. Responsive QA: 320/360/390/430/768/1024/1440px.
 8. Accessibility + performance audit.
-9. Security audit: session cookie flags, login rate limiting, CSRF, upload handling, path traversal, headers.
-10. Final repository audit and update this README with the actual verified final state.
+9. Security audit: session cookie flags, login rate limiting, CSRF, upload MIME/size, path traversal, security headers.
+10. Final repository audit va README statusini real natija bilan yangilash.
 
 ## DEFINITION OF DONE
-5 public pages + one admin panel + complete JSON CRUD + requests + secure media + all real uploaded media integrated + responsive/accessibility/SEO/security QA are actually verified. No fake data, no duplicate admin pages, no forbidden frameworks.
+5 public pages + one admin panel + complete JSON CRUD + requests + secure media + real uploaded media + responsive/accessibility/SEO/security QA amalda tekshirilgan bo‘lishi kerak. Forbidden frameworks ishlatilmaydi. Fake medical data qo‘shilmaydi.
