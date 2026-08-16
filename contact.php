@@ -1,2 +1,83 @@
-<?php require __DIR__.'/includes/app.php'; require __DIR__.'/includes/components.php'; $errors=[]; $sent=false; $requestPath=APP_ROOT.'/data/requests.json'; if($_SERVER['REQUEST_METHOD']==='POST'){ $name=trim((string)($_POST['name']??'')); $phone=trim((string)($_POST['phone']??'')); $email=trim((string)($_POST['email']??'')); $message=trim((string)($_POST['message']??'')); if(mb_strlen($name)<2||mb_strlen($name)>100)$errors[]='Ismni to‘g‘ri kiriting.'; if(mb_strlen($phone)<7||mb_strlen($phone)>30)$errors[]='Telefon raqamini to‘g‘ri kiriting.'; if($email!==''&&!filter_var($email,FILTER_VALIDATE_EMAIL))$errors[]='Email manzili noto‘g‘ri.'; if(mb_strlen($message)>1000)$errors[]='Xabar juda uzun.'; if(!$errors){$raw=is_file($requestPath)?file_get_contents($requestPath):'[]';$list=json_decode((string)$raw,true);if(!is_array($list)||!array_is_list($list))$list=[];$list[]=['id'=>'REQ-'.date('YmdHis').'-'.random_int(100,999),'name'=>$name,'phone'=>$phone,'email'=>$email,'message'=>$message,'created_at'=>date('Y-m-d H:i:s'),'status'=>'new'];$json=json_encode($list,JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);if($json!==false&&file_put_contents($requestPath,$json.PHP_EOL,LOCK_EX)!==false)$sent=true;else$errors[]='So‘rovni saqlashda xatolik yuz berdi.';}} site_header('contact','Bog‘lanish'); ?>
-<main><section class="page-hero shell"><div class="eyebrow">04 / Contact</div><h1>To‘g‘ri aloqa.<br><span style="color:var(--green)">Professional yondashuv.</span></h1><p>Qabul, hamkorlik yoki professional masala bo‘yicha qisqa so‘rov qoldiring.</p></section><section class="section shell contact-grid"><aside class="contact-card dark"><h2>Sizdan eshitishdan mamnunmiz.</h2><p>Kerakli ma’lumotlarni qoldiring. Maxsus yoki batafsil tibbiy ma’lumotlarni forma orqali yubormang.</p><div class="detail"><small>Telefon</small><strong><?=h($contact['phone']??'Admin panel orqali boshqariladi')?></strong></div><div class="detail"><small>Email</small><strong><?=h($contact['email']??'Admin panel orqali boshqariladi')?></strong></div><div class="detail"><small>Manzil</small><strong><?=h($contact['address']??$doctor['city']??'Admin panel orqali boshqariladi')?></strong></div></aside><section class="contact-card"><h2>So‘rov yuborish</h2><p>Qisqa va aniq ma’lumot qoldiring.</p><?php if($sent): ?><div class="notice success">So‘rovingiz muvaffaqiyatli yuborildi.</div><?php endif; ?><?php if($errors): ?><div class="notice error"><?=h(implode(' ', $errors))?></div><?php endif; ?><form method="post" action="/contact.php"><div class="form-grid"><div class="field"><label for="name">Ism *</label><input id="name" name="name" required maxlength="100" value="<?=h($_POST['name']??'')?>"></div><div class="field"><label for="phone">Telefon *</label><input id="phone" name="phone" required maxlength="30" value="<?=h($_POST['phone']??'')?>"></div><div class="field full"><label for="email">Email</label><input id="email" type="email" name="email" maxlength="160" value="<?=h($_POST['email']??'')?>"></div><div class="field full"><label for="message">Xabar</label><textarea id="message" name="message" maxlength="1000" placeholder="Murojaatingizni qisqacha yozing..."><?=h($_POST['message']??'')?></textarea></div></div><button class="form-submit" type="submit">So‘rovni yuborish →</button></form></section></section></main><?php site_footer(); ?>
+<?php
+require __DIR__ . '/includes/app.php';
+require __DIR__ . '/includes/components.php';
+
+$errors = [];
+$sent = false;
+$requestPath = APP_ROOT . '/data/requests.json';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (!csrf_valid((string)($_POST['csrf'] ?? ''))) {
+        $errors[] = 'Sessiya xavfsizligi tekshiruvi muvaffaqiyatsiz. Sahifani yangilang va qayta urinib ko‘ring.';
+    }
+
+    $name = trim((string)($_POST['name'] ?? ''));
+    $phone = trim((string)($_POST['phone'] ?? ''));
+    $email = trim((string)($_POST['email'] ?? ''));
+    $message = trim((string)($_POST['message'] ?? ''));
+
+    if (mb_strlen($name) < 2 || mb_strlen($name) > 100) $errors[] = 'Ismni to‘g‘ri kiriting.';
+    if (mb_strlen($phone) < 7 || mb_strlen($phone) > 30) $errors[] = 'Telefon raqamini to‘g‘ri kiriting.';
+    if ($email !== '' && (!filter_var($email, FILTER_VALIDATE_EMAIL) || mb_strlen($email) > 160)) $errors[] = 'Email manzili noto‘g‘ri.';
+    if (mb_strlen($message) > 1000) $errors[] = 'Xabar juda uzun.';
+
+    if (!$errors) {
+        $raw = is_file($requestPath) ? file_get_contents($requestPath) : '[]';
+        $list = json_decode((string)$raw, true);
+        if (!is_array($list) || !array_is_list($list)) $list = [];
+
+        $list[] = [
+            'id' => 'REQ-' . date('YmdHis') . '-' . random_int(100, 999),
+            'name' => $name,
+            'phone' => $phone,
+            'email' => $email,
+            'message' => $message,
+            'created_at' => date('Y-m-d H:i:s'),
+            'status' => 'new'
+        ];
+
+        $json = json_encode($list, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+        if ($json !== false && file_put_contents($requestPath, $json . PHP_EOL, LOCK_EX) !== false) {
+            $sent = true;
+            $_SESSION['public_csrf'] = bin2hex(random_bytes(32));
+        } else {
+            $errors[] = 'So‘rovni saqlashda xatolik yuz berdi.';
+        }
+    }
+}
+
+site_header('contact', 'Bog‘lanish');
+?>
+<main>
+<section class="page-hero shell">
+  <div class="eyebrow">04 / Contact</div>
+  <h1>To‘g‘ri aloqa.<br><span style="color:var(--green)">Professional yondashuv.</span></h1>
+  <p>Qabul, hamkorlik yoki professional masala bo‘yicha qisqa so‘rov qoldiring.</p>
+</section>
+<section class="section shell contact-grid">
+  <aside class="contact-card dark">
+    <h2>Sizdan eshitishdan mamnunmiz.</h2>
+    <p>Kerakli ma’lumotlarni qoldiring. Maxsus yoki batafsil tibbiy ma’lumotlarni forma orqali yubormang.</p>
+    <div class="detail"><small>Telefon</small><strong><?= h($contact['phone'] ?? 'Admin panel orqali boshqariladi') ?></strong></div>
+    <div class="detail"><small>Email</small><strong><?= h($contact['email'] ?? 'Admin panel orqali boshqariladi') ?></strong></div>
+    <div class="detail"><small>Manzil</small><strong><?= h($contact['address'] ?? $doctor['city'] ?? 'Admin panel orqali boshqariladi') ?></strong></div>
+  </aside>
+  <section class="contact-card">
+    <h2>So‘rov yuborish</h2>
+    <p>Qisqa va aniq ma’lumot qoldiring.</p>
+    <?php if ($sent): ?><div class="notice success">So‘rovingiz muvaffaqiyatli yuborildi.</div><?php endif; ?>
+    <?php if ($errors): ?><div class="notice error"><?= h(implode(' ', $errors)) ?></div><?php endif; ?>
+    <form method="post" action="/contact.php">
+      <input type="hidden" name="csrf" value="<?= h(csrf_token()) ?>">
+      <div class="form-grid">
+        <div class="field"><label for="name">Ism *</label><input id="name" name="name" required maxlength="100" autocomplete="name" value="<?= h($_POST['name'] ?? '') ?>"></div>
+        <div class="field"><label for="phone">Telefon *</label><input id="phone" name="phone" required maxlength="30" autocomplete="tel" value="<?= h($_POST['phone'] ?? '') ?>"></div>
+        <div class="field full"><label for="email">Email</label><input id="email" type="email" name="email" maxlength="160" autocomplete="email" value="<?= h($_POST['email'] ?? '') ?>"></div>
+        <div class="field full"><label for="message">Xabar</label><textarea id="message" name="message" maxlength="1000" placeholder="Murojaatingizni qisqacha yozing..."><?= h($_POST['message'] ?? '') ?></textarea></div>
+      </div>
+      <button class="form-submit" type="submit">So‘rovni yuborish →</button>
+    </form>
+  </section>
+</section>
+</main>
+<?php site_footer(); ?>
