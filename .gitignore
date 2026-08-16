@@ -1,0 +1,35 @@
+```
+# Environment and config
+.env
+.env.local
+.env.*
+
+# Data files
+data/.edit_password.json
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+
+# Dependencies
+node_modules/
+vendor/
+
+# Build artifacts
+dist/
+build/
+*.min.js
+*.min.css
+```
