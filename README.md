@@ -6,7 +6,7 @@
 ## TEXNOLOGIYA — QAT’IY
 Faqat PHP 8.x + HTML5 + CSS3 + Vanilla JS + JSON + Apache. React/Vue/Angular/Node/npm/Tailwind/Bootstrap/Laravel/WordPress/MySQL yo‘q.
 
-## YANGI STRUKTURA
+## STRUKTURA
 ```text
 jahongirneuro.uz/
 ├── index.php
@@ -50,7 +50,7 @@ Desktop, laptop, tablet va mobile alohida kompozitsiya sifatida ishlashi shart. 
 Bitta PHP fayl ichida Dashboard, Site/Doktor, About, Services, Portfolio, So‘rovlar, Media va Settings mavjud. Authentication `ADMIN_PASSWORD` environment variable orqali ishlaydi. CSRF, session regeneration, JSON `LOCK_EX`, output escaping, MIME/size validation va path traversal himoyasi saqlanadi.
 
 ## REAL MEDIA
-Original `uploads/` fayllari o‘zgartirilmaydi. `data/media.json` markaziy media manifest hisoblanadi. Portfolio barcha manifest media elementlarini category filter bilan ko‘rsatadi. Original fayllarga to‘g‘ridan-to‘g‘ri access saqlanadi.
+Original `uploads/` fayllari o‘zgartirilmaydi. `data/media.json` markaziy media manifest hisoblanadi. Portfolio manifestdagi media elementlarini category filter bilan ko‘rsatadi. JPG/PNG/WebP native render qilinadi; MOV native HTML5 video sifatida ko‘rsatiladi; HEIC/HEIF uchun browser preview konvertatsiyasi va original fayl fallback mavjud. Repositorydagi real media soni **manifest asosida** hisoblanadi — hozirgi branchda `data/media.json` 4 ta yozuvni o‘z ichiga oladi. fileciteturn29file0L1-L5
 
 ## AI AGENT PROTOKOLI
 README'ni to‘liq o‘qi → repositoryni tekshir → mavjud JSON/media/admin logikasini o‘qi → tayyor ishlayotgan backendni sababsiz buzma → dizayn va arxitekturani umumiy system orqali boshqar → syntax/logicni tekshir → README statusini fakt asosida yangila → commit qil.
@@ -60,7 +60,7 @@ README'ni to‘liq o‘qi → repositoryni tekshir → mavjud JSON/media/admin l
 **Phase:** 07 — Full Public UI Rebuild / Premium Medical Design
 
 ### PUBLIC
-- [x] `index.php` — yangi editorial hero + portrait + stats + expertise + evidence + contact CTA
+- [x] `index.php` — editorial hero + portrait + stats + expertise + evidence + contact CTA
 - [x] `about.php` — identity, philosophy, experience, education
 - [x] `services.php` — expertise cards va clinical philosophy
 - [x] `portfolio.php` — real media archive + filters
@@ -68,6 +68,7 @@ README'ni to‘liq o‘qi → repositoryni tekshir → mavjud JSON/media/admin l
 - [x] Shared public components
 - [x] Shared responsive design system
 - [x] Shared mobile navigation
+- [x] Shared HEIC/MOV media handling restored
 
 ### CMS
 - [x] Single `/admin/index.php`
@@ -77,7 +78,21 @@ README'ni to‘liq o‘qi → repositoryni tekshir → mavjud JSON/media/admin l
 - [x] Requests workflow
 - [x] Media upload/delete foundation
 
-### NEXT EXACT EXECUTION ORDER
+### VERIFIED / NOT YET VERIFIED
+- [x] Repository structure inspected
+- [x] Public architecture rebuilt
+- [x] Original media manifest preserved
+- [x] HEIC/MOV handling retained in shared component layer
+- [ ] PHP runtime syntax audit
+- [ ] JSON integrity audit
+- [ ] Physical media-path audit
+- [ ] Target hosting rendering QA
+- [ ] Admin upload/delete live QA
+- [ ] Responsive browser QA
+- [ ] Accessibility/performance audit
+- [ ] Production security audit
+
+## NEXT EXACT EXECUTION ORDER
 1. PHP syntax audit — barcha public va admin PHP entry pointlar.
 2. JSON integrity audit — barcha `data/*.json`.
 3. `data/media.json` yo‘llarini repositorydagi real fayllar bilan solishtirish.
